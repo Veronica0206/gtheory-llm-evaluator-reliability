@@ -8,7 +8,7 @@ Analysis code accompanying:
 
 | Resource | Location |
 |---|---|
-| Derived data and analysis outputs | OSF: https://osf.io/k9caj/ (DOI: TBD) |
+| Derived data and analysis outputs | [OSF]{https://doi.org/10.17605/OSF.IO/K9CAJ} |
 | Code (this repository) | GitHub: https://github.com/Veronica0206/gtheory-llm-evaluator-reliability |
 | Code (immutable archive) | Zenodo: TBD |
 
