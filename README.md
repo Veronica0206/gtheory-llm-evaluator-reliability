@@ -129,8 +129,17 @@ If you use this code, please cite both the manuscript and this repository:
   title   = {Generalizability Theory for LLM-as-Evaluator Reliability:
              Analysis Code},
   year    = {2026},
-  url     = {https://github.com/Veronica0206/gtheory-llm-evaluator-reliability},
-  doi     = {TBD (Zenodo DOI after release tagged)}
+  url     = {https://github.com/Veronica0206/gtheory-llm-evaluator-reliability}
+}
+
+@misc{liu2026gtheory_data,
+  author  = {Liu, Jin},
+  title   = {LLM Annotation Reliability: A Generalizability Theory Analysis
+             of Hate Speech, Mental Health, and Drug Review Tasks},
+  year    = {2026},
+  doi     = {10.17605/OSF.IO/K9CAJ},
+  url     = {https://osf.io/k9caj/},
+  publisher = {Open Science Framework}
 }
 ```
 
