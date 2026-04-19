@@ -37,7 +37,6 @@ This repository contains the R analysis pipeline for the **lme4-based univariate
 │       ├── lme4_models.R               # multivariate stacked lmer
 │       └── shared/
 │           └── multivariate_workflow.R # multivariate design and stacking
-├── verify_*.Rmd                        # post-hoc verification reports
 ├── generate_disattenuated_figures.R    # Figure 1 of manuscript
 ├── README.md
 ├── LICENSE                             # MIT
@@ -111,14 +110,6 @@ source("generate_disattenuated_figures.R")
 ```
 
 Outputs PNG figures and the underlying CSV correlation matrices for the Mental-Health (6-flag) and Drug-Review (4-aspect) disattenuated universe-score correlations.
-
-### 6. Verification reports
-
-The `verify_*.Rmd` files reproduce the agreement, entropy, and calibration analyses reported in the supplementary materials. Knit any of them to HTML:
-
-```r
-rmarkdown::render("verify_uv_hate_speech.Rmd")
-```
 
 ## Citation
 
