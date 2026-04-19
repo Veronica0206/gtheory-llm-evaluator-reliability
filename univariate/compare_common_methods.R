@@ -3,8 +3,6 @@ suppressPackageStartupMessages(library(tibble))
 suppressPackageStartupMessages(library(lme4))
 
 source("univariate/src/shared/univariate_workflow.R")
-source("univariate/src/fit_gtheory_openmx.R")
-source("univariate/src/fit_gtheory_openmx_path.R")
 
 
 UMC_OUTPUT_DIR <- "univariate/outputs"
@@ -48,40 +46,27 @@ umc_model_specs <- function() {
   list(
     full = list(
       modeled_facets = c("evaluator", "prompt_type", "temperature", "seed"),
-      facet_spec = umc_make_facet_spec(c("evaluator", "prompt_type", "temperature", "seed")),
-      openmx_supported = TRUE
+      facet_spec = umc_make_facet_spec(c("evaluator", "prompt_type", "temperature", "seed"))
     ),
     nested_seed = list(
       modeled_facets = c("evaluator", "prompt_type", "temperature"),
-      facet_spec = umc_make_facet_spec(c("evaluator", "prompt_type", "temperature")),
-      openmx_wide_supported = FALSE,
-      openmx_bw_supported = TRUE,
-      note = "Wide/path engine averages nested facets; use BW for separate nested components."
+      facet_spec = umc_make_facet_spec(c("evaluator", "prompt_type", "temperature"))
     ),
     nested_seed_temperature = list(
       modeled_facets = c("evaluator", "prompt_type"),
-      facet_spec = umc_make_facet_spec(c("evaluator", "prompt_type")),
-      openmx_wide_supported = FALSE,
-      openmx_bw_supported = TRUE,
-      note = "Wide/path engine averages nested facets; use BW for separate nested components."
+      facet_spec = umc_make_facet_spec(c("evaluator", "prompt_type"))
     ),
     nested_prompt_temperature_seed = list(
       modeled_facets = c("evaluator"),
-      facet_spec = umc_make_facet_spec(c("evaluator")),
-      openmx_wide_supported = FALSE,
-      openmx_bw_supported = TRUE,
-      note = "Wide/path engine averages nested facets; use BW for separate nested components."
+      facet_spec = umc_make_facet_spec(c("evaluator"))
     ),
     prompt_only = list(
       modeled_facets = c("prompt_type"),
-      facet_spec = umc_make_facet_spec(c("prompt_type")),
-      openmx_supported = TRUE
+      facet_spec = umc_make_facet_spec(c("prompt_type"))
     ),
     item_only = list(
       modeled_facets = character(0),
-      facet_spec = NULL,
-      openmx_supported = FALSE,
-      note = "Current OpenMx engine requires at least one modeled facet."
+      facet_spec = NULL
     )
   )
 }
@@ -217,44 +202,6 @@ umc_component_divisor <- function(component, dat) {
   }
 
   prod(counts[parts])
-}
-
-
-umc_openmx_to_lme4_names <- function() {
-  c(
-    tau = "item_id",
-    evaluator = "evaluator",
-    prompt_type = "prompt_type",
-    temperature = "temperature",
-    seed = "seed",
-    tau_evaluator = "item_id:evaluator",
-    tau_prompt_type = "item_id:prompt_type",
-    tau_temperature = "item_id:temperature",
-    tau_seed = "item_id:seed",
-    evaluator_prompt_type = "evaluator:prompt_type",
-    evaluator_temperature = "evaluator:temperature",
-    evaluator_seed = "evaluator:seed",
-    prompt_type_temperature = "prompt_type:temperature",
-    prompt_type_seed = "prompt_type:seed",
-    temperature_seed = "temperature:seed",
-    epsilon = "Residual"
-  )
-}
-
-
-umc_component_table_from_openmx <- function(vc_list) {
-  openmx_map <- umc_openmx_to_lme4_names()
-
-  tibble(
-    openmx_component = names(vc_list),
-    variance = as.numeric(unlist(vc_list))
-  ) %>%
-    mutate(component = unname(openmx_map[openmx_component])) %>%
-    filter(!is.na(component)) %>%
-    group_by(component) %>%
-    summarise(variance = sum(variance), .groups = "drop") %>%
-    mutate(prop_total = variance / sum(variance)) %>%
-    arrange(desc(variance))
 }
 
 

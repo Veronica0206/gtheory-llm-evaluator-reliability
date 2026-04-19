@@ -14,28 +14,29 @@ Analysis code accompanying:
 
 ## Repository scope
 
-This repository contains the R analysis pipeline for the **lme4-based univariate and multivariate generalizability theory** analyses reported in the manuscript. The pipeline also includes alternative estimation engines (Bayesian wide-format models via brms-style code; OpenMx structural-equation parameterizations) used during methods comparison; the manuscript's reported analyses use the lme4 engine throughout.
+This repository contains the R analysis pipeline for the **lme4-based univariate and multivariate generalizability theory** analyses reported in the manuscript.
 
 ```
 .
 ├── univariate/
 │   ├── compare_common_methods.R        # shared utilities and dataset specs
 │   ├── runs/                           # per-task driver scripts
-│   │   ├── run_lme4_*.R                # lme4 fits (used in manuscript)
-│   │   ├── run_bw_*.R                  # Bayesian wide-format alternative
-│   │   └── run_wide_*.R                # OpenMx wide alternative
+│   │   └── run_lme4_*.R                # lme4 fits for hate speech, mental
+│   │                                   # health (7L and 3L), and drug review
 │   └── src/
 │       ├── lme4_models.R               # univariate G-theory via lme4
-│       ├── bw_models.R                 # Bayesian wide-format
-│       ├── wide_models.R               # OpenMx wide-format
-│       ├── fit_gtheory_openmx*.R       # OpenMx fitting helpers
-│       └── shared/                     # design specs and utilities
+│       └── shared/
+│           ├── gtheory_utils.R         # shared computation helpers
+│           └── univariate_workflow.R   # design specs and data preparation
 ├── multivariate/
-│   ├── runs/                           # per-task multivariate drivers
+│   ├── runs/
+│   │   └── run_lme4_*.R                # multivariate drivers (mental health,
+│   │                                   # mental health 3-condition sensitivity,
+│   │                                   # drug review)
 │   └── src/
-│       ├── lme4_models.R               # multivariate stacked lmer (paper)
-│       ├── bw_models.R, wide_models.R  # alternatives
-│       └── shared/                     # multivariate utilities
+│       ├── lme4_models.R               # multivariate stacked lmer
+│       └── shared/
+│           └── multivariate_workflow.R # multivariate design and stacking
 ├── verify_*.Rmd                        # post-hoc verification reports
 ├── generate_disattenuated_figures.R    # Figure 1 of manuscript
 ├── README.md
@@ -74,15 +75,6 @@ install.packages(c(
   "tibble",      # tibbles
   "numDeriv",    # Hessian/Jacobian for analytic Wald CIs
   "boot"         # bootstrap (for univariate CIs)
-))
-```
-
-For the alternative estimation engines (not required to reproduce paper results):
-
-```r
-install.packages(c(
-  "OpenMx",      # SEM-based G-theory (wide_models.R, fit_gtheory_openmx*.R)
-  "brms"         # Bayesian wide-format (bw_models.R)
 ))
 ```
 
