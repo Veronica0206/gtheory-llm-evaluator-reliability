@@ -2,7 +2,7 @@
 
 Analysis code accompanying:
 
-> Liu, J. (2026). *Generalizability Theory for LLM-as-Evaluator Reliability: Univariate and Multivariate Variance Decomposition Across Models, Prompts, and Temperatures in Text Classification*. Behavior Research Methods.
+> Liu, J. (2026). *Generalizability Theory for LLM-as-Evaluator Reliability: Univariate and Multivariate Variance Decomposition Across Models, Prompts, and Temperatures in Text Classification*. 
 
 ## Companion artifacts
 
