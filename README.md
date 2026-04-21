@@ -120,7 +120,6 @@ If you use this code, please cite both the manuscript and this repository:
   title   = {Generalizability Theory for {LLM-as-Evaluator} Reliability:
              Univariate and Multivariate Variance Decomposition Across Models,
              Prompts, and Temperatures in Text Classification},
-  journal = {Behavior Research Methods},
   year    = {2026}
 }
 
