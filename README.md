@@ -1,8 +1,44 @@
 # Generalizability Theory for LLM-as-Evaluator Reliability
 
+[![GitHub repo](https://img.shields.io/badge/GitHub-gtheory--llm--evaluator--reliability-black)](https://github.com/Veronica0206/gtheory-llm-evaluator-reliability)
+[![R](https://img.shields.io/badge/R-lme4%20pipeline-blue)](https://www.r-project.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
 Analysis code accompanying:
 
 > Liu, J. (2026). *Generalizability Theory for LLM-as-Evaluator Reliability: Univariate and Multivariate Variance Decomposition Across Models, Prompts, and Temperatures in Text Classification*. 
+
+This repository applies Generalizability Theory to LLM-as-evaluator reliability, decomposing variance across models, prompts, temperatures, seeds, items, and task-specific evaluation facets. Instead of treating a single accuracy or agreement score as the whole story, the code estimates where evaluator instability comes from and how dependable an evaluation design is under different measurement conditions.
+
+## Why this matters for AI evaluation
+
+LLM evaluators are increasingly used as model-as-judge systems, rubric graders, safety classifiers, and annotation assistants. Reliability matters because a system can look accurate in one prompt/model/temperature setting while being unstable under small evaluation-design changes.
+
+This framework is relevant to:
+
+- model-as-judge auditing and evaluator consistency assessment
+- safety classifier calibration and disagreement triage
+- prompt/model/temperature/seed variance decomposition and sensitivity analysis
+- cost-efficient evaluation design through D-study style projections
+- human oversight thresholds for deciding when automated judgments need review
+
+## Methods overview
+
+- **Crossed evaluation designs:** Treat items, evaluator models, prompts, temperatures, seeds, and related task facets as measurement-design components rather than incidental implementation details.
+- **Variance decomposition:** Use mixed-effects models to estimate how much variability is attributable to items, facets, interactions, and residual error.
+- **G-coefficients and dependability:** Compute reliability-style summaries such as `Erho2` and `Phi` to distinguish relative and absolute dependability.
+- **D-study projections:** Project how reliability changes when the number of prompts, evaluator models, temperatures, or seeds changes.
+- **Univariate and multivariate analysis:** Support single-outcome reliability analyses and multivariate stacked analyses for multi-flag or multi-aspect evaluation tasks.
+
+## For hiring reviewers
+
+This repo demonstrates:
+
+- measurement science applied to AI systems
+- reliability analysis beyond simple accuracy or one-off agreement
+- structured evaluation design for LLM behavior assessment
+- statistical rigor in model-as-judge and LLM evaluator auditing
+- reproducible R implementation for univariate and multivariate reliability workflows
 
 ## Companion artifacts
 
@@ -11,7 +47,7 @@ Analysis code accompanying:
 | Derived data and analysis outputs | OSF: https://doi.org/10.17605/OSF.IO/K9CAJ |
 | Code (this repository) | GitHub: https://github.com/Veronica0206/gtheory-llm-evaluator-reliability |
 
-## Repository scope
+## Repository structure and scope
 
 This repository contains the R analysis pipeline for the **lme4-based univariate and multivariate generalizability theory** analyses reported in the manuscript.
 
