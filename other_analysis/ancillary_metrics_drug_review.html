@@ -1,0 +1,869 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Drug Review — inter-evaluator reliability, ECE and severity–entropy correlations</title><style>
+:root{color-scheme:light;--ink:#172b43;--muted:#536176;--line:#d7e1e9;--teal:#00696e}
+*{box-sizing:border-box}body{margin:0;background:#f3f6f8;color:var(--ink);font:16px/1.6 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+main{max-width:1220px;margin:auto;padding:28px 28px 80px}header{padding:34px;background:#15324b;color:white;border-radius:14px;margin-bottom:22px}header a{color:#c8f5ee}header h1{margin:8px 0;font-size:2.15rem;line-height:1.2}header p{max-width:880px}a{color:#006b75;text-underline-offset:3px}a:focus-visible,summary:focus-visible{outline:3px solid #e88f22;outline-offset:3px}nav{display:flex;gap:20px;flex-wrap:wrap}.eyebrow{font-size:.8rem;letter-spacing:.13em;text-transform:uppercase;font-weight:700}.panel,.cell,.output{background:white;border:1px solid var(--line);border-radius:10px;padding:22px;margin:18px 0}.notice{border-left:5px solid #cc8a29;background:#fff9ed}.panel h2{margin-top:0}.meta{color:var(--muted);font-size:.88rem}.cell-label,.output-label{font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;font-weight:650}.output{border-radius:6px;padding:16px;background:#fcfdff}.output-label{margin:0 0 12px}pre{overflow-x:auto;white-space:pre;padding:16px;border-radius:6px;background:#eef3f7;color:#182b40;font:13px/1.55 ui-monospace,SFMono-Regular,Consolas,monospace;tab-size:4}pre code{background:none;padding:0}code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.88em;overflow-wrap:anywhere}p code,li code,td code{background:#edf1f5;padding:2px 4px;border-radius:3px}.saved-plot{max-width:100%;height:auto;display:block;margin:auto}.table-scroll{overflow-x:auto}table{border-collapse:collapse;font-size:.9rem;margin:16px 0;max-width:100%}th,td{border:1px solid var(--line);padding:9px 12px;text-align:left}th{background:#eaf1f6}summary{cursor:pointer;color:var(--teal);font-weight:600;padding:8px 0}details{margin:12px 0}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}.card{border:1px solid var(--line);border-radius:10px;padding:22px;background:#fff}.card h2{margin-top:0;font-size:1.3rem}.hash{word-break:break-all}.toc ul{columns:2;column-gap:30px}.toc li{break-inside:avoid;padding-bottom:5px}.markdown-cell h1{font-size:1.65rem}.markdown-cell h2{font-size:1.4rem}.markdown-cell h3{font-size:1.2rem}footer{margin-top:30px;font-size:.9rem;color:var(--muted)}@media(max-width:700px){main{padding:12px 12px 50px}header{padding:22px}header h1{font-size:1.8rem}.cell,.panel{padding:15px}.toc ul{columns:1}pre{font-size:12px}th,td{padding:7px}}@media print{body{background:white}main{max-width:none;padding:0}header{color:var(--ink);background:white;border:1px solid var(--line)}header a{color:var(--teal)}pre{white-space:pre-wrap;overflow-wrap:anywhere}.cell{break-inside:auto}img{break-inside:avoid}details>summary{display:none}details>*{display:block}nav{display:none}}
+</style></head><body><main><header><nav><a href="../index.html">Repository home</a><a href="index.html">Other analysis</a><a href="https://osf.io/k9caj/">Data on OSF</a></nav><p class="eyebrow">Retained ancillary notebook excerpts</p><h1>Drug Review</h1><p>Inter-evaluator reliability, probability ECE, and severity–entropy correlations, with their original code and saved outputs.</p></header><section class="panel"><p>These excerpts come from <code>02_univariate_drug.ipynb</code>. All selected cells and their saved outputs are shown; original cell indexes are retained. The earlier G-study results are outside this excerpt. Packaging did not execute the analysis.</p><p><strong>Metric interpretation:</strong> ECE uses each evaluator’s own modal label after item × evaluator aggregation, with mean probability vectors. It is not calibration against independently verified human labels. The entropy correlation uses mean severity as the retained notebook’s descriptive θ proxy; the baseline condition averages the three seeds at gpt-4o-mini / rubric / temperature 0.</p><p>The archived alpha helper uses squared distance between ranks of the observed categories. Its exact implementation is included below; the notebook’s “ordinal alpha” label is preserved without new methodological validation.</p></section><aside class="panel notice"><p>The severity–entropy cell includes figure-generation code and a saved filename, but no figure image is stored in that notebook cell’s outputs. Its saved tables and console output are preserved; no replacement plot was generated.</p></aside><section class="panel"><details><summary>Source hashes, coverage and publication notes</summary><p>Frozen notebook SHA-256: <code class="hash">a204bcc0f6b5f942df9e6513128a6d06e81f8ba9c1dbd0ea3f24f676c18b4bcf</code>.</p><p>Original selected cell indexes (zero-based): <code>1, 2, 11, 12, 13, 14, 15, 20</code>. Coverage: 6 code cells, 8 saved output records, 0 embedded figures. Saved Python version: not recorded.</p><p>The private project-root prefix is replaced by <code>.</code> in the publication copy. Colab scripts and controls are inert in the rendered output; their complete HTML is retained as escaped text. Account identifiers and notebook UI metadata are omitted. Numerical outputs are not altered.</p><p>The helper definitions were recovered from the frozen legacy Colab backup of <code>gtheory_analysis_utils.py</code> (two byte-identical retained copies). Its SHA-256 is <code class="hash">c24da135808f28e89d5a532d102b4458f611926d244348312632ce379c74e8e7</code>. The notebook records the import name but no hash of the helper loaded at execution time, so the exact runtime/helper association cannot be established from the retained metadata.</p><p>Packaged on 2026-09-10. Only source packaging, sanitation and content checks were performed; no annotation, model fitting or metric recomputation was performed.</p><div class="table-scroll"><table><thead><tr><th>Cell</th><th>Execution count</th><th>Saved status</th><th>Saved timestamp (UTC)</th><th>Saved elapsed value</th></tr></thead><tbody><tr><td>1</td><td>1</td><td>ok</td><td>2026-04-20T04:43:13.487Z</td><td>21702</td></tr><tr><td>2</td><td>2</td><td>ok</td><td>2026-04-20T04:43:16.122Z</td><td>2632</td></tr><tr><td>12</td><td>10</td><td>ok</td><td>2026-04-20T05:17:58.296Z</td><td>1516</td></tr><tr><td>14</td><td>11</td><td>ok</td><td>2026-04-20T05:17:58.682Z</td><td>378</td></tr><tr><td>15</td><td>12</td><td>ok</td><td>2026-04-20T05:17:59.171Z</td><td>487</td></tr><tr><td>20</td><td>17</td><td>ok</td><td>2026-04-20T05:18:00.355Z</td><td>66</td></tr></tbody></table></div></details></section><section class="panel"><h2>Local use of the excerpts</h2><p>Run in a Python notebook from the downloaded repository root, with annotation CSVs from <a href="https://osf.io/k9caj/">OSF</a> under <code>data/</code>. The matching sample CSVs listed in <a href="../reproducing.html">reproduction instructions</a> are also required; they are not included in this GitHub package or verified as present in the OSF deposit, so a complete rerun depends on obtaining them. Use the local setup below and the three helper definitions, then run the included original code cells in ascending order <strong>starting at cell 2</strong>. Historical cell 1 is retained for provenance; the local setup replaces its Colab paths and broad helper imports.</p><details><summary>Local setup for this excerpt (publication adaptation, not a saved analysis cell)</summary><pre class="local-setup"><code>from pathlib import Path
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+from IPython.display import display
+
+DATA_DIR = Path(&quot;data&quot;).resolve()
+OUTPUTS_DIR = Path(&quot;outputs/ancillary_drug_review&quot;).resolve()
+OUTPUTS_DIR.mkdir(parents=True, exist_ok=True)
+sns.set_style(&quot;whitegrid&quot;)
+plt.rcParams[&quot;figure.figsize&quot;] = (12, 6)
+plt.rcParams[&quot;figure.dpi&quot;] = 120
+plt.rcParams[&quot;font.size&quot;] = 11
+LABEL_FILE = str(DATA_DIR / &quot;drug_labeling_final.csv&quot;)
+SAMPLE_FILE = str(DATA_DIR / &quot;drug_sample_100.csv&quot;)
+LABEL_ORDER = [&#x27;VERY_NEGATIVE&#x27;, &#x27;NEGATIVE&#x27;, &#x27;NEUTRAL&#x27;, &#x27;POSITIVE&#x27;, &#x27;VERY_POSITIVE&#x27;]
+PROB_COLS = [&#x27;prob_very_negative&#x27;, &#x27;prob_negative&#x27;, &#x27;prob_neutral&#x27;,
+             &#x27;prob_positive&#x27;, &#x27;prob_very_positive&#x27;]
+</code></pre></details><p class="meta">Dependencies: Python, NumPy, pandas, SciPy, scikit-learn, matplotlib, seaborn and IPython. The historical setup also imports statsmodels. A complete locked Python environment is not retained.</p></section><section class="panel" id="helper-source"><h2>Archived helper definitions</h2><p>Exact function bodies from the retained helper; NumPy and pandas imports are supplied by the local setup above. The pairwise helper imports scikit-learn internally. No helper output is newly computed here.</p><details><summary>krippendorff_alpha_ordinal (source lines 1266–1317)</summary><pre class="helper-source"><code>def krippendorff_alpha_ordinal(ratings_matrix):
+    &quot;&quot;&quot;
+    Compute Krippendorff&#x27;s alpha for ordinal data.
+    ratings_matrix: DataFrame with items as rows, raters as columns.
+    Uses squared ordinal distance metric.
+    &quot;&quot;&quot;
+    values = sorted(ratings_matrix.stack().unique())
+    val_map = {v: i for i, v in enumerate(values)}
+
+    unit_counts = []
+    for _, row in ratings_matrix.iterrows():
+        vals = row.dropna().values
+        if len(vals) &lt; 2:
+            continue
+        counts = {}
+        for v in vals:
+            counts[v] = counts.get(v, 0) + 1
+        unit_counts.append((len(vals), counts))
+
+    if not unit_counts:
+        return np.nan
+
+    total_disagreement = 0
+    total_pairs = 0
+    marginals = {}
+
+    for m_u, counts in unit_counts:
+        for c, n_c in counts.items():
+            marginals[c] = marginals.get(c, 0) + n_c
+            for k, n_k in counts.items():
+                if c != k:
+                    dist = (val_map[c] - val_map[k]) ** 2
+                    total_disagreement += n_c * n_k * dist
+            total_pairs += n_c * (m_u - 1)
+
+    if total_pairs == 0:
+        return np.nan
+
+    Do = total_disagreement / total_pairs
+
+    n_total = sum(marginals.values())
+    De = 0
+    for c in marginals:
+        for k in marginals:
+            if c != k:
+                dist = (val_map[c] - val_map[k]) ** 2
+                De += marginals[c] * marginals[k] * dist
+    De /= (n_total * (n_total - 1))
+
+    if De == 0:
+        return 1.0
+    return 1 - Do / De
+</code></pre><p class="meta">Excerpt SHA-256: <code>63e044d39398f1fca7da1ca63ec9393b3e9f662e710d5469ab6606921f299828</code></p></details><details><summary>pairwise_agreement (source lines 1320–1367)</summary><pre class="helper-source"><code>def pairwise_agreement(df, item_col, rater_col, label_col,
+                       agg_func=&#x27;mode&#x27;, metric=&#x27;accuracy&#x27;):
+    &quot;&quot;&quot;
+    Compute pairwise inter-rater agreement matrix.
+
+    Parameters
+    ----------
+    df : DataFrame
+    item_col, rater_col, label_col : str
+    agg_func : &#x27;mode&#x27; or &#x27;mean&#x27; — how to aggregate across seeds/temps
+    metric : &#x27;accuracy&#x27; or &#x27;kappa&#x27;
+
+    Returns
+    -------
+    pd.DataFrame — symmetric matrix of pairwise agreement
+    &quot;&quot;&quot;
+    import pandas as pd
+    from sklearn.metrics import cohen_kappa_score
+
+    if agg_func == &#x27;mode&#x27;:
+        agg = df.groupby([item_col, rater_col])[label_col].agg(
+            lambda x: x.mode().iloc[0] if len(x.mode()) &gt; 0 else x.iloc[0]
+        ).reset_index()
+    else:
+        agg = df.groupby([item_col, rater_col])[label_col].mean().reset_index()
+
+    pivot = agg.pivot(index=item_col, columns=rater_col, values=label_col)
+    raters = sorted(pivot.columns)
+
+    mat = pd.DataFrame(np.nan, index=raters, columns=raters)
+    for i, r1 in enumerate(raters):
+        mat.loc[r1, r1] = 1.0
+        for r2 in raters[i + 1:]:
+            valid = pivot[[r1, r2]].dropna()
+            if len(valid) == 0:
+                continue
+            if metric == &#x27;kappa&#x27;:
+                try:
+                    k = cohen_kappa_score(valid[r1], valid[r2], weights=&#x27;quadratic&#x27;)
+                except:
+                    k = np.nan
+                mat.loc[r1, r2] = round(k, 4)
+                mat.loc[r2, r1] = round(k, 4)
+            else:
+                acc = (valid[r1] == valid[r2]).mean()
+                mat.loc[r1, r2] = round(acc, 4)
+                mat.loc[r2, r1] = round(acc, 4)
+    return mat
+</code></pre><p class="meta">Excerpt SHA-256: <code>3fcc8793379dc6b6d93ecb23d7933ba60dd786128e5ea054e177a531013e6648</code></p></details><details><summary>calibration_metrics (source lines 1370–1420)</summary><pre class="helper-source"><code>def calibration_metrics(df, prob_cols, label_col, labels, n_bins=10):
+    &quot;&quot;&quot;
+    Compute Expected Calibration Error (ECE) and per-class calibration data.
+
+    Returns dict with &#x27;ece&#x27; and &#x27;per_class&#x27; calibration curves.
+    &quot;&quot;&quot;
+    results = {&#x27;ece&#x27;: 0, &#x27;per_class&#x27;: {}}
+    total_samples = len(df)
+
+    for label, prob_col in zip(labels, prob_cols):
+        is_positive = (df[label_col] == label).astype(float).values
+        probs = df[prob_col].values.astype(float)
+
+        # Bin probabilities
+        bin_edges = np.linspace(0, 1, n_bins + 1)
+        bin_centers = []
+        bin_accs = []
+        bin_confs = []
+        bin_counts = []
+
+        for b in range(n_bins):
+            mask = (probs &gt;= bin_edges[b]) &amp; (probs &lt; bin_edges[b + 1])
+            if b == n_bins - 1:
+                mask = (probs &gt;= bin_edges[b]) &amp; (probs &lt;= bin_edges[b + 1])
+            if mask.sum() == 0:
+                continue
+            bin_acc = is_positive[mask].mean()
+            bin_conf = probs[mask].mean()
+            bin_centers.append((bin_edges[b] + bin_edges[b + 1]) / 2)
+            bin_accs.append(bin_acc)
+            bin_confs.append(bin_conf)
+            bin_counts.append(mask.sum())
+
+        results[&#x27;per_class&#x27;][label] = {
+            &#x27;bin_centers&#x27;: bin_centers,
+            &#x27;bin_accs&#x27;: bin_accs,
+            &#x27;bin_confs&#x27;: bin_confs,
+            &#x27;bin_counts&#x27;: bin_counts,
+        }
+
+    # Overall ECE: weighted average |acc - conf| across all bins and classes
+    total_ece = 0
+    total_n = 0
+    for label_data in results[&#x27;per_class&#x27;].values():
+        for acc, conf, cnt in zip(label_data[&#x27;bin_accs&#x27;], label_data[&#x27;bin_confs&#x27;],
+                                   label_data[&#x27;bin_counts&#x27;]):
+            total_ece += cnt * abs(acc - conf)
+            total_n += cnt
+    results[&#x27;ece&#x27;] = total_ece / max(total_n, 1)
+
+    return results
+</code></pre><p class="meta">Excerpt SHA-256: <code>71c249866113405776813550c737b7e27f1032e23c2ddf98fcc2cbd0d2b3f002</code></p></details></section><section class="cell code-cell" id="cell-1" data-cell-type="code"><p class="cell-label">Original cell 1 · code · saved execution 1</p><pre class="cell-source"><code>import sys, os, warnings
+warnings.filterwarnings(&#x27;ignore&#x27;)
+
+import numpy as np
+import pandas as pd
+import matplotlib
+matplotlib.use(&#x27;Agg&#x27;)
+import matplotlib.pyplot as plt
+import seaborn as sns
+from scipy import stats
+from pathlib import Path
+
+# -- Paths (Google Drive on Colab) --
+from google.colab import drive
+drive.mount(&#x27;/content/drive&#x27;)
+
+BASE_DIR = Path(&quot;./03.DrugReview&quot;)
+DATA_DIR = BASE_DIR / &quot;data&quot;
+OUTPUTS_DIR = BASE_DIR / &quot;outputs&quot;
+OUTPUTS_DIR.mkdir(parents=True, exist_ok=True)
+os.chdir(BASE_DIR)
+
+# Import shared utility module (lives in project root)
+UTILS_DIR = Path(&quot;.&quot;)
+sys.path.insert(0, str(UTILS_DIR))
+from gtheory_analysis_utils import (
+    variance_components_crossed,
+    g_coefficient,
+    dependability_coefficient,
+    d_study_grid,
+    krippendorff_alpha_ordinal,
+    pairwise_agreement,
+    calibration_metrics,
+    accuracy_vs_ground_truth,
+    compute_observation_entropy,
+    max_entropy,
+)
+
+# Aliases used by downstream cells
+OUTPUTS     = str(OUTPUTS_DIR)
+LABEL_FILE  = str(DATA_DIR / &#x27;drug_labeling_final.csv&#x27;)
+SAMPLE_FILE = str(DATA_DIR / &#x27;drug_sample_100.csv&#x27;)
+
+LABEL_ORDER = [&#x27;VERY_NEGATIVE&#x27;, &#x27;NEGATIVE&#x27;, &#x27;NEUTRAL&#x27;, &#x27;POSITIVE&#x27;, &#x27;VERY_POSITIVE&#x27;]
+ASPECT_COLS = [&#x27;ai_efficacy&#x27;, &#x27;ai_safety&#x27;, &#x27;ai_burden&#x27;, &#x27;ai_cost&#x27;]
+PROB_COLS   = [&#x27;prob_very_negative&#x27;, &#x27;prob_negative&#x27;, &#x27;prob_neutral&#x27;,
+               &#x27;prob_positive&#x27;, &#x27;prob_very_positive&#x27;]
+FACETS      = [&#x27;item_id&#x27;, &#x27;evaluator&#x27;, &#x27;prompt_type&#x27;, &#x27;temperature&#x27;]
+
+pd.set_option(&#x27;display.max_columns&#x27;, 30)
+pd.set_option(&#x27;display.width&#x27;, 160)
+print(&quot;Setup complete.&quot;)
+print(f&quot;BASE_DIR: {BASE_DIR}&quot;)
+print(f&quot;OUTPUTS_DIR: {OUTPUTS_DIR}&quot;)</code></pre><section class="output" id="output-1-0" data-output-type="stream"><p class="output-label">Saved output 1 · stream</p><pre class="stream-text"><code>Mounted at /content/drive
+Setup complete.
+BASE_DIR: ./03.DrugReview
+OUTPUTS_DIR: ./03.DrugReview/outputs
+</code></pre></section></section><section class="cell code-cell" id="cell-2" data-cell-type="code"><p class="cell-label">Original cell 2 · code · saved execution 2</p><pre class="cell-source"><code># --- Load labeling data -------------------------------------------------
+df_raw = pd.read_csv(LABEL_FILE)
+print(f&quot;Raw rows: {len(df_raw):,}&quot;)
+print(f&quot;Evaluator counts (raw):\n{df_raw[&#x27;evaluator&#x27;].value_counts().to_string()}&quot;)
+
+df = pd.read_csv(LABEL_FILE)
+print(f&quot;Rows: {len(df):,}&quot;)
+assert len(df) == 21_600, f&quot;Expected 21600, got {len(df)}&quot;
+
+# Design variables
+n_items = df[&#x27;item_id&#x27;].nunique()
+n_evals = df[&#x27;evaluator&#x27;].nunique()
+n_prompts = df[&#x27;prompt_type&#x27;].nunique()
+n_temps = df[&#x27;temperature&#x27;].nunique()
+n_seeds = df[&#x27;seed&#x27;].nunique()
+print(f&quot;\nDesign: {n_items} items × {n_evals} evaluators × {n_prompts} prompts &quot;
+      f&quot;× {n_temps} temps × {n_seeds} seeds = {n_items*n_evals*n_prompts*n_temps*n_seeds:,}&quot;)
+
+# --- Load sample metadata &amp; merge ---------------------------------------
+sample = pd.read_csv(SAMPLE_FILE)
+df = df.merge(sample[[&#x27;item_id&#x27;, &#x27;entropy_stratum&#x27;, &#x27;original_rating&#x27;]],
+              on=&#x27;item_id&#x27;, how=&#x27;left&#x27;)
+
+print(f&quot;\nEvaluators retained: {sorted(df[&#x27;evaluator&#x27;].unique())}&quot;)
+print(f&quot;Prompt types: {sorted(df[&#x27;prompt_type&#x27;].unique())}&quot;)
+print(f&quot;Temperatures: {sorted(df[&#x27;temperature&#x27;].unique())}&quot;)
+print(f&quot;Items: {df[&#x27;item_id&#x27;].nunique()}&quot;)
+print(f&quot;Entropy strata:\n{df[&#x27;entropy_stratum&#x27;].value_counts().sort_index().to_string()}&quot;)
+</code></pre><section class="output" id="output-2-0" data-output-type="stream"><p class="output-label">Saved output 1 · stream</p><pre class="stream-text"><code>Raw rows: 21,600
+Evaluator counts (raw):
+evaluator
+gpt-4o-mini         5400
+gemini-2.5-flash    5400
+mistral-small       5400
+llama-70b           5400
+Rows: 21,600
+
+Design: 100 items × 4 evaluators × 3 prompts × 6 temps × 3 seeds = 21,600
+
+Evaluators retained: [&#x27;gemini-2.5-flash&#x27;, &#x27;gpt-4o-mini&#x27;, &#x27;llama-70b&#x27;, &#x27;mistral-small&#x27;]
+Prompt types: [&#x27;cot&#x27;, &#x27;minimal&#x27;, &#x27;rubric&#x27;]
+Temperatures: [np.float64(0.0), np.float64(0.2), np.float64(0.4), np.float64(0.6), np.float64(0.8), np.float64(1.0)]
+Items: 100
+Entropy strata:
+entropy_stratum
+Q1    6480
+Q2    4536
+Q3    5616
+Q4    4968
+</code></pre></section></section><section class="cell markdown-cell" id="cell-11" data-cell-type="markdown"><p class="cell-label">Original cell 11 · markdown</p><h2 id="per-item-difficulty-θ-proxy--entropyθ-correlations">Per-Item Difficulty (θ Proxy) &amp; Entropy–θ Correlations</h2>
+<p>The mean severity per item, averaged over all 216 observations (4 evaluators × 3 prompts × 6 temps × 3 seeds), serves as a sufficient statistic for the Rasch item difficulty parameter θ.</p>
+<p>Three entropy–θ correlations test whether model-generated uncertainty predicts item difficulty:</p>
+<ol type="1">
+<li><strong>Baseline entropy ↔︎ mean severity</strong> — baseline = gpt-4o-mini × rubric × temp=0 (gpt-4o-mini screening condition)</li>
+<li><strong>All-condition entropy ↔︎ mean severity</strong> — entropy averaged over all 216 observations</li>
+<li><strong>Baseline entropy ↔︎ all-condition entropy</strong> — validates single-call entropy as a proxy for multi-evaluator entropy</li>
+</ol>
+<details><summary>Original Markdown text</summary><pre class="markdown-source"><code>## Per-Item Difficulty (θ Proxy) &amp; Entropy–θ Correlations
+
+The mean severity per item, averaged over all 216 observations (4 evaluators × 3 prompts × 6 temps × 3 seeds), serves as a sufficient statistic for the Rasch item difficulty parameter θ.
+
+Three entropy–θ correlations test whether model-generated uncertainty predicts item difficulty:
+1. **Baseline entropy ↔ mean severity** — baseline = gpt-4o-mini × rubric × temp=0 (gpt-4o-mini screening condition)
+2. **All-condition entropy ↔ mean severity** — entropy averaged over all 216 observations
+3. **Baseline entropy ↔ all-condition entropy** — validates single-call entropy as a proxy for multi-evaluator entropy</code></pre></details></section><section class="cell code-cell" id="cell-12" data-cell-type="code"><p class="cell-label">Original cell 12 · code · saved execution 10</p><pre class="cell-source"><code># ── Per-Item Difficulty (θ proxy) &amp; Entropy–θ Correlations ──
+from scipy.stats import spearmanr, pearsonr
+
+# Probability columns for Shannon entropy (5-class sentiment)
+_prob_cols = [&#x27;prob_very_negative&#x27;, &#x27;prob_negative&#x27;, &#x27;prob_neutral&#x27;,
+              &#x27;prob_positive&#x27;, &#x27;prob_very_positive&#x27;]
+
+def _shannon_h(row, cols):
+    probs = [row[c] for c in cols if pd.notna(row[c]) and row[c] &gt; 0]
+    return -sum(p * np.log2(p) for p in probs) if probs else 0.0
+
+# 1. Per-item mean severity (θ proxy): averaged over all 216 observations
+item_theta = df.groupby(&#x27;item_id&#x27;)[&#x27;severity&#x27;].mean().reset_index()
+item_theta.columns = [&#x27;item_id&#x27;, &#x27;mean_severity&#x27;]
+
+# 2. Baseline entropy: gpt-4o-mini × rubric × temp=0 (gpt-4o-mini screening condition)
+ref_single = df[
+    (df[&#x27;evaluator&#x27;] == &#x27;gpt-4o-mini&#x27;) &amp;
+    (df[&#x27;prompt_type&#x27;] == &#x27;rubric&#x27;) &amp;
+    (df[&#x27;temperature&#x27;].astype(float) == 0.0)
+].copy()
+ref_single[&#x27;_h&#x27;] = ref_single.apply(lambda r: _shannon_h(r, _prob_cols), axis=1)
+baseline_h = ref_single.groupby(&#x27;item_id&#x27;)[&#x27;_h&#x27;].mean().reset_index()
+baseline_h.columns = [&#x27;item_id&#x27;, &#x27;baseline_entropy&#x27;]
+
+# 3. All-condition entropy: averaged over all 216 observations per item
+df[&#x27;_h_all&#x27;] = df.apply(lambda r: _shannon_h(r, _prob_cols), axis=1)
+allcond_h = df.groupby(&#x27;item_id&#x27;)[&#x27;_h_all&#x27;].mean().reset_index()
+allcond_h.columns = [&#x27;item_id&#x27;, &#x27;allcond_entropy&#x27;]
+
+# Merge into item-level DataFrame
+item_df = item_theta.merge(baseline_h, on=&#x27;item_id&#x27;).merge(allcond_h, on=&#x27;item_id&#x27;)
+_samp = sample[[&#x27;item_id&#x27;, &#x27;entropy_stratum&#x27;]].copy()
+_samp[&#x27;item_id&#x27;] = _samp[&#x27;item_id&#x27;].astype(str)
+item_df[&#x27;item_id&#x27;] = item_df[&#x27;item_id&#x27;].astype(str)
+item_df = item_df.merge(_samp, on=&#x27;item_id&#x27;, how=&#x27;left&#x27;)
+
+print(f&quot;Items: {len(item_df)}&quot;)
+print(f&quot;\n{&#x27;=&#x27;*70}&quot;)
+print(&quot;Per-Item θ Proxy (Mean Severity) &amp; Entropy Summary&quot;)
+print(f&quot;{&#x27;=&#x27;*70}&quot;)
+print(item_df[[&#x27;mean_severity&#x27;, &#x27;baseline_entropy&#x27;, &#x27;allcond_entropy&#x27;]].describe().round(3).to_string())
+
+# ── Three Correlations (Spearman + Pearson) ──
+print(f&quot;\n{&#x27;=&#x27;*70}&quot;)
+print(&quot;Entropy–θ Correlations&quot;)
+print(f&quot;{&#x27;=&#x27;*70}&quot;)
+corr_specs = [
+    (&#x27;Baseline Entropy ↔ Mean Severity&#x27;, &#x27;baseline_entropy&#x27;, &#x27;mean_severity&#x27;),
+    (&#x27;All-Condition Entropy ↔ Mean Severity&#x27;, &#x27;allcond_entropy&#x27;, &#x27;mean_severity&#x27;),
+    (&#x27;Baseline Entropy ↔ All-Condition Entropy&#x27;, &#x27;baseline_entropy&#x27;, &#x27;allcond_entropy&#x27;),
+]
+corr_rows = []
+for label, c1, c2 in corr_specs:
+    rho, p_rho = spearmanr(item_df[c1], item_df[c2])
+    r, p_r = pearsonr(item_df[c1], item_df[c2])
+    corr_rows.append({&#x27;Comparison&#x27;: label,
+                      &#x27;Spearman ρ&#x27;: round(rho, 3), &#x27;p (Spearman)&#x27;: f&#x27;{p_rho:.2e}&#x27;,
+                      &#x27;Pearson r&#x27;: round(r, 3), &#x27;p (Pearson)&#x27;: f&#x27;{p_r:.2e}&#x27;})
+    print(f&quot;  {label}:&quot;)
+    print(f&quot;    Spearman ρ = {rho:.3f} (p = {p_rho:.2e})&quot;)
+    print(f&quot;    Pearson  r = {r:.3f} (p = {p_r:.2e})&quot;)
+corr_table_theta = pd.DataFrame(corr_rows)
+display(corr_table_theta)
+
+# ── Scatter: Baseline Entropy (X) vs Mean Severity (Y) ──
+fig, ax = plt.subplots(figsize=(8, 6))
+colors_q = {&#x27;Q1&#x27;: &#x27;green&#x27;, &#x27;Q2&#x27;: &#x27;dodgerblue&#x27;, &#x27;Q3&#x27;: &#x27;orange&#x27;, &#x27;Q4&#x27;: &#x27;red&#x27;}
+for s in [&#x27;Q1&#x27;, &#x27;Q2&#x27;, &#x27;Q3&#x27;, &#x27;Q4&#x27;]:
+    sub = item_df[item_df[&#x27;entropy_stratum&#x27;] == s]
+    if len(sub) &gt; 0:
+        ax.scatter(sub[&#x27;baseline_entropy&#x27;], sub[&#x27;mean_severity&#x27;],
+                   c=colors_q[s], label=s, alpha=0.7, s=60, edgecolors=&#x27;white&#x27;)
+    else:
+        ax.scatter([], [], c=colors_q[s], label=f&#x27;{s} (n=0)&#x27;, alpha=0.7, s=60)
+z = np.polyfit(item_df[&#x27;baseline_entropy&#x27;], item_df[&#x27;mean_severity&#x27;], 1)
+x_line = np.linspace(item_df[&#x27;baseline_entropy&#x27;].min(), item_df[&#x27;baseline_entropy&#x27;].max(), 100)
+ax.plot(x_line, np.polyval(z, x_line), &#x27;k--&#x27;, alpha=0.5)
+rho, p = spearmanr(item_df[&#x27;baseline_entropy&#x27;], item_df[&#x27;mean_severity&#x27;])
+ax.set_xlabel(&#x27;Baseline Entropy (gpt-4o-mini / rubric / temp=0)&#x27;)
+ax.set_ylabel(&#x27;Mean Severity (θ proxy, averaged over 216 obs)&#x27;)
+ax.set_title(f&#x27;Item Difficulty vs Baseline Entropy (ρ={rho:.3f}, p={p:.2e})&#x27;)
+ax.legend(title=&#x27;Entropy Stratum&#x27;)
+plt.tight_layout()
+plt.savefig(OUTPUTS_DIR / f&#x27;drug_theta_entropy_scatter.png&#x27;, dpi=150, bbox_inches=&#x27;tight&#x27;)
+plt.show()
+
+# Clean up temp columns
+df.drop(columns=[&#x27;_h_all&#x27;], inplace=True, errors=&#x27;ignore&#x27;)
+
+corr_table_theta.to_csv(OUTPUTS_DIR / f&#x27;drug_entropy_theta_correlations.csv&#x27;, index=False)
+item_df.to_csv(OUTPUTS_DIR / f&#x27;drug_item_theta_proxy.csv&#x27;, index=False)
+print(f&quot;\nSaved to {OUTPUTS_DIR}&quot;)</code></pre><section class="output" id="output-12-0" data-output-type="stream"><p class="output-label">Saved output 1 · stream</p><pre class="stream-text"><code>Items: 100
+
+======================================================================
+Per-Item θ Proxy (Mean Severity) &amp; Entropy Summary
+======================================================================
+       mean_severity  baseline_entropy  allcond_entropy
+count        100.000           100.000          100.000
+mean           3.199             1.608            1.161
+std            1.437             0.372            0.298
+min            1.032             0.638            0.602
+25%            1.729             1.356            0.905
+50%            3.866             1.698            1.162
+75%            4.657             1.846            1.389
+max            4.880             2.246            1.829
+
+======================================================================
+Entropy–θ Correlations
+======================================================================
+  Baseline Entropy ↔ Mean Severity:
+    Spearman ρ = -0.367 (p = 1.71e-04)
+    Pearson  r = -0.345 (p = 4.39e-04)
+  All-Condition Entropy ↔ Mean Severity:
+    Spearman ρ = -0.098 (p = 3.31e-01)
+    Pearson  r = -0.010 (p = 9.21e-01)
+  Baseline Entropy ↔ All-Condition Entropy:
+    Spearman ρ = 0.831 (p = 1.03e-26)
+    Pearson  r = 0.826 (p = 3.79e-26)
+</code></pre></section><section class="output" id="output-12-1" data-output-type="display_data"><p class="output-label">Saved output 2 · display_data</p><div class="mime-output" data-mime="text/plain"><details><summary>Saved text/plain representation</summary><pre class="mime-source"><code>                                 Comparison  Spearman ρ p (Spearman)  Pearson r p (Pearson)
+0          Baseline Entropy ↔ Mean Severity      -0.367     1.71e-04     -0.345    4.39e-04
+1     All-Condition Entropy ↔ Mean Severity      -0.098     3.31e-01     -0.010    9.21e-01
+2  Baseline Entropy ↔ All-Condition Entropy       0.831     1.03e-26      0.826    3.79e-26</code></pre></details></div><div class="mime-output" data-mime="text/html"><div class="table-scroll saved-html">
+<div class="colab-df-container" id="df-3565c586-183d-4f81-a1f0-9d1f981607b8">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>Comparison</th>
+<th>Spearman ρ</th>
+<th>p (Spearman)</th>
+<th>Pearson r</th>
+<th>p (Pearson)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>Baseline Entropy ↔ Mean Severity</td>
+<td>-0.367</td>
+<td>1.71e-04</td>
+<td>-0.345</td>
+<td>4.39e-04</td>
+</tr>
+<tr>
+<th>1</th>
+<td>All-Condition Entropy ↔ Mean Severity</td>
+<td>-0.098</td>
+<td>3.31e-01</td>
+<td>-0.010</td>
+<td>9.21e-01</td>
+</tr>
+<tr>
+<th>2</th>
+<td>Baseline Entropy ↔ All-Condition Entropy</td>
+<td>0.831</td>
+<td>1.03e-26</td>
+<td>0.826</td>
+<td>3.79e-26</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="colab-df-buttons">
+<div class="colab-df-container">
+
+<style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+</div>
+<div id="id_03687004-9d65-4ac9-b271-de897aa18f0f">
+<style>
+      .colab-df-generate {
+        background-color: #E8F0FE;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        display: none;
+        fill: #1967D2;
+        height: 32px;
+        padding: 0 0 0 0;
+        width: 32px;
+      }
+
+      .colab-df-generate:hover {
+        background-color: #E2EBFA;
+        box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+        fill: #174EA6;
+      }
+
+      [theme=dark] .colab-df-generate {
+        background-color: #3B4455;
+        fill: #D2E3FC;
+      }
+
+      [theme=dark] .colab-df-generate:hover {
+        background-color: #434B5C;
+        box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+        filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+        fill: #FFFFFF;
+      }
+    </style>
+
+
+</div>
+</div>
+</div>
+</div><details><summary>Complete saved HTML representation (inert source)</summary><pre class="html-source"><code>
+  &lt;div id=&quot;df-3565c586-183d-4f81-a1f0-9d1f981607b8&quot; class=&quot;colab-df-container&quot;&gt;
+    &lt;div&gt;
+&lt;style scoped&gt;
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+&lt;/style&gt;
+&lt;table border=&quot;1&quot; class=&quot;dataframe&quot;&gt;
+  &lt;thead&gt;
+    &lt;tr style=&quot;text-align: right;&quot;&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;Comparison&lt;/th&gt;
+      &lt;th&gt;Spearman ρ&lt;/th&gt;
+      &lt;th&gt;p (Spearman)&lt;/th&gt;
+      &lt;th&gt;Pearson r&lt;/th&gt;
+      &lt;th&gt;p (Pearson)&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th&gt;0&lt;/th&gt;
+      &lt;td&gt;Baseline Entropy ↔ Mean Severity&lt;/td&gt;
+      &lt;td&gt;-0.367&lt;/td&gt;
+      &lt;td&gt;1.71e-04&lt;/td&gt;
+      &lt;td&gt;-0.345&lt;/td&gt;
+      &lt;td&gt;4.39e-04&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;1&lt;/th&gt;
+      &lt;td&gt;All-Condition Entropy ↔ Mean Severity&lt;/td&gt;
+      &lt;td&gt;-0.098&lt;/td&gt;
+      &lt;td&gt;3.31e-01&lt;/td&gt;
+      &lt;td&gt;-0.010&lt;/td&gt;
+      &lt;td&gt;9.21e-01&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;2&lt;/th&gt;
+      &lt;td&gt;Baseline Entropy ↔ All-Condition Entropy&lt;/td&gt;
+      &lt;td&gt;0.831&lt;/td&gt;
+      &lt;td&gt;1.03e-26&lt;/td&gt;
+      &lt;td&gt;0.826&lt;/td&gt;
+      &lt;td&gt;3.79e-26&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+    &lt;div class=&quot;colab-df-buttons&quot;&gt;
+
+  &lt;div class=&quot;colab-df-container&quot;&gt;
+    &lt;button class=&quot;colab-df-convert&quot; onclick=&quot;convertToInteractive(&#x27;df-3565c586-183d-4f81-a1f0-9d1f981607b8&#x27;)&quot;
+            title=&quot;Convert this dataframe to an interactive table.&quot;
+            style=&quot;display:none;&quot;&gt;
+
+  &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; height=&quot;24px&quot; viewBox=&quot;0 -960 960 960&quot;&gt;
+    &lt;path d=&quot;M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z&quot;/&gt;
+  &lt;/svg&gt;
+    &lt;/button&gt;
+
+  &lt;style&gt;
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  &lt;/style&gt;
+
+    &lt;script&gt;
+      const buttonEl =
+        document.querySelector(&#x27;#df-3565c586-183d-4f81-a1f0-9d1f981607b8 button.colab-df-convert&#x27;);
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? &#x27;block&#x27; : &#x27;none&#x27;;
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector(&#x27;#df-3565c586-183d-4f81-a1f0-9d1f981607b8&#x27;);
+        const dataTable =
+          await google.colab.kernel.invokeFunction(&#x27;convertToInteractive&#x27;,
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = &#x27;Like what you see? Visit the &#x27; +
+          &#x27;&lt;a target=&quot;_blank&quot; href=https://colab.research.google.com/notebooks/data_table.ipynb&gt;data table notebook&lt;/a&gt;&#x27;
+          + &#x27; to learn more about interactive tables.&#x27;;
+        element.innerHTML = &#x27;&#x27;;
+        dataTable[&#x27;output_type&#x27;] = &#x27;display_data&#x27;;
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement(&#x27;div&#x27;);
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    &lt;/script&gt;
+  &lt;/div&gt;
+
+
+  &lt;div id=&quot;id_03687004-9d65-4ac9-b271-de897aa18f0f&quot;&gt;
+    &lt;style&gt;
+      .colab-df-generate {
+        background-color: #E8F0FE;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        display: none;
+        fill: #1967D2;
+        height: 32px;
+        padding: 0 0 0 0;
+        width: 32px;
+      }
+
+      .colab-df-generate:hover {
+        background-color: #E2EBFA;
+        box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+        fill: #174EA6;
+      }
+
+      [theme=dark] .colab-df-generate {
+        background-color: #3B4455;
+        fill: #D2E3FC;
+      }
+
+      [theme=dark] .colab-df-generate:hover {
+        background-color: #434B5C;
+        box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+        filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+        fill: #FFFFFF;
+      }
+    &lt;/style&gt;
+    &lt;button class=&quot;colab-df-generate&quot; onclick=&quot;generateWithVariable(&#x27;corr_table_theta&#x27;)&quot;
+            title=&quot;Generate code using this dataframe.&quot;
+            style=&quot;display:none;&quot;&gt;
+
+  &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; height=&quot;24px&quot;viewBox=&quot;0 0 24 24&quot;
+       width=&quot;24px&quot;&gt;
+    &lt;path d=&quot;M7,19H8.4L18.45,9,17,7.55,7,17.6ZM5,21V16.75L18.45,3.32a2,2,0,0,1,2.83,0l1.4,1.43a1.91,1.91,0,0,1,.58,1.4,1.91,1.91,0,0,1-.58,1.4L9.25,21ZM18.45,9,17,7.55Zm-12,3A5.31,5.31,0,0,0,4.9,8.1,5.31,5.31,0,0,0,1,6.5,5.31,5.31,0,0,0,4.9,4.9,5.31,5.31,0,0,0,6.5,1,5.31,5.31,0,0,0,8.1,4.9,5.31,5.31,0,0,0,12,6.5,5.46,5.46,0,0,0,6.5,12Z&quot;/&gt;
+  &lt;/svg&gt;
+    &lt;/button&gt;
+    &lt;script&gt;
+      (() =&gt; {
+      const buttonEl =
+        document.querySelector(&#x27;#id_03687004-9d65-4ac9-b271-de897aa18f0f button.colab-df-generate&#x27;);
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? &#x27;block&#x27; : &#x27;none&#x27;;
+
+      buttonEl.onclick = () =&gt; {
+        google.colab.notebook.generateWithVariable(&#x27;corr_table_theta&#x27;);
+      }
+      })();
+    &lt;/script&gt;
+  &lt;/div&gt;
+
+    &lt;/div&gt;
+  &lt;/div&gt;
+</code></pre></details></div><div class="mime-output" data-mime="application/vnd.google.colaboratory.intrinsic+json"><details><summary>Saved application/vnd.google.colaboratory.intrinsic+json representation</summary><pre class="mime-source"><code>{
+  &quot;type&quot;: &quot;dataframe&quot;,
+  &quot;variable_name&quot;: &quot;corr_table_theta&quot;,
+  &quot;summary&quot;: &quot;{\n  \&quot;name\&quot;: \&quot;corr_table_theta\&quot;,\n  \&quot;rows\&quot;: 3,\n  \&quot;fields\&quot;: [\n    {\n      \&quot;column\&quot;: \&quot;Comparison\&quot;,\n      \&quot;properties\&quot;: {\n        \&quot;dtype\&quot;: \&quot;string\&quot;,\n        \&quot;num_unique_values\&quot;: 3,\n        \&quot;samples\&quot;: [\n          \&quot;Baseline Entropy \\u2194 Mean Severity\&quot;,\n          \&quot;All-Condition Entropy \\u2194 Mean Severity\&quot;,\n          \&quot;Baseline Entropy \\u2194 All-Condition Entropy\&quot;\n        ],\n        \&quot;semantic_type\&quot;: \&quot;\&quot;,\n        \&quot;description\&quot;: \&quot;\&quot;\n      }\n    },\n    {\n      \&quot;column\&quot;: \&quot;Spearman \\u03c1\&quot;,\n      \&quot;properties\&quot;: {\n        \&quot;dtype\&quot;: \&quot;number\&quot;,\n        \&quot;std\&quot;: 0.6285706006488054,\n        \&quot;min\&quot;: -0.367,\n        \&quot;max\&quot;: 0.831,\n        \&quot;num_unique_values\&quot;: 3,\n        \&quot;samples\&quot;: [\n          -0.367,\n          -0.098,\n          0.831\n        ],\n        \&quot;semantic_type\&quot;: \&quot;\&quot;,\n        \&quot;description\&quot;: \&quot;\&quot;\n      }\n    },\n    {\n      \&quot;column\&quot;: \&quot;p (Spearman)\&quot;,\n      \&quot;properties\&quot;: {\n        \&quot;dtype\&quot;: \&quot;string\&quot;,\n        \&quot;num_unique_values\&quot;: 3,\n        \&quot;samples\&quot;: [\n          \&quot;1.71e-04\&quot;,\n          \&quot;3.31e-01\&quot;,\n          \&quot;1.03e-26\&quot;\n        ],\n        \&quot;semantic_type\&quot;: \&quot;\&quot;,\n        \&quot;description\&quot;: \&quot;\&quot;\n      }\n    },\n    {\n      \&quot;column\&quot;: \&quot;Pearson r\&quot;,\n      \&quot;properties\&quot;: {\n        \&quot;dtype\&quot;: \&quot;number\&quot;,\n        \&quot;std\&quot;: 0.6030978361758562,\n        \&quot;min\&quot;: -0.345,\n        \&quot;max\&quot;: 0.826,\n        \&quot;num_unique_values\&quot;: 3,\n        \&quot;samples\&quot;: [\n          -0.345,\n          -0.01,\n          0.826\n        ],\n        \&quot;semantic_type\&quot;: \&quot;\&quot;,\n        \&quot;description\&quot;: \&quot;\&quot;\n      }\n    },\n    {\n      \&quot;column\&quot;: \&quot;p (Pearson)\&quot;,\n      \&quot;properties\&quot;: {\n        \&quot;dtype\&quot;: \&quot;string\&quot;,\n        \&quot;num_unique_values\&quot;: 3,\n        \&quot;samples\&quot;: [\n          \&quot;4.39e-04\&quot;,\n          \&quot;9.21e-01\&quot;,\n          \&quot;3.79e-26\&quot;\n        ],\n        \&quot;semantic_type\&quot;: \&quot;\&quot;,\n        \&quot;description\&quot;: \&quot;\&quot;\n      }\n    }\n  ]\n}&quot;
+}</code></pre></details></div></section><section class="output" id="output-12-2" data-output-type="stream"><p class="output-label">Saved output 3 · stream</p><pre class="stream-text"><code>
+Saved to ./03.DrugReview/outputs
+</code></pre></section></section><section class="cell markdown-cell" id="cell-13" data-cell-type="markdown"><p class="cell-label">Original cell 13 · markdown</p><h3 id="krippendorffs-alpha-ordinal">Krippendorff's Alpha (Ordinal)</h3>
+<p><strong>Note on aggregation:</strong> Severity ratings were aggregated to modal values per item × evaluator prior to computing Krippendorff's α, preserving ordinal scale properties.</p>
+<details><summary>Original Markdown text</summary><pre class="markdown-source"><code>### Krippendorff&#x27;s Alpha (Ordinal)
+
+**Note on aggregation:** Severity ratings were aggregated to modal values per item × evaluator prior to computing Krippendorff&#x27;s α, preserving ordinal scale properties.</code></pre></details></section><section class="cell code-cell" id="cell-14" data-cell-type="code"><p class="cell-label">Original cell 14 · code · saved execution 11</p><pre class="cell-source"><code># --- Krippendorff&#x27;s alpha: aggregate over seeds AND temps ----------------
+print(&quot;=&quot; * 70)
+print(&quot;KRIPPENDORFF&#x27;S ALPHA (ordinal) — aggregated over seeds &amp; temps&quot;)
+print(&quot;=&quot; * 70)
+
+# Aggregate: mode severity per (item_id, evaluator, prompt_type)
+df_agg = df.groupby([&#x27;item_id&#x27;, &#x27;evaluator&#x27;, &#x27;prompt_type&#x27;])[&#x27;severity&#x27;].agg(
+    lambda x: x.mode().iloc[0] if len(x.mode()) &gt; 0 else x.iloc[0]
+).reset_index()
+
+# Overall: further aggregate over prompt_type
+df_agg_overall = df.groupby([&#x27;item_id&#x27;, &#x27;evaluator&#x27;])[&#x27;severity&#x27;].agg(
+    lambda x: x.mode().iloc[0] if len(x.mode()) &gt; 0 else x.iloc[0]
+).reset_index()
+
+pivot_overall = df_agg_overall.pivot(index=&#x27;item_id&#x27;, columns=&#x27;evaluator&#x27;, values=&#x27;severity&#x27;)
+alpha_overall = krippendorff_alpha_ordinal(pivot_overall)
+print(f&quot;\nOverall Krippendorff&#x27;s alpha: {alpha_overall:.4f}&quot;)
+
+# By prompt type
+print(&quot;\nBy prompt type:&quot;)
+for pt in sorted(df[&#x27;prompt_type&#x27;].unique()):
+    sub = df_agg[df_agg[&#x27;prompt_type&#x27;] == pt]
+    pivot_pt = sub.pivot(index=&#x27;item_id&#x27;, columns=&#x27;evaluator&#x27;, values=&#x27;severity&#x27;)
+    alpha_pt = krippendorff_alpha_ordinal(pivot_pt)
+    print(f&quot;  {pt:&lt;12s}  α = {alpha_pt:.4f}&quot;)
+</code></pre><section class="output" id="output-14-0" data-output-type="stream"><p class="output-label">Saved output 1 · stream</p><pre class="stream-text"><code>======================================================================
+KRIPPENDORFF&#x27;S ALPHA (ordinal) — aggregated over seeds &amp; temps
+======================================================================
+
+Overall Krippendorff&#x27;s alpha: 0.9408
+
+By prompt type:
+  cot           α = 0.8979
+  minimal       α = 0.9478
+  rubric        α = 0.9308
+</code></pre></section></section><section class="cell code-cell" id="cell-15" data-cell-type="code"><p class="cell-label">Original cell 15 · code · saved execution 12</p><pre class="cell-source"><code># --- Pairwise agreement: kappa and agreement rate ------------------------------
+# Kappa uses numeric severity (1=VERY_NEGATIVE, ..., 5=VERY_POSITIVE) so that
+# quadratic weighting reflects the sentiment ordering, not the alphabetical
+# ordering of the raw category names.
+print(&quot;=&quot; * 70)
+print(&quot;PAIRWISE EVALUATOR AGREEMENT&quot;)
+print(&quot;=&quot; * 70)
+
+print(&quot;\n--- Weighted Kappa (quadratic, mode-aggregated severity) ---&quot;)
+kappa_mat = pairwise_agreement(df, &#x27;item_id&#x27;, &#x27;evaluator&#x27;, &#x27;severity&#x27;,
+                                agg_func=&#x27;mode&#x27;, metric=&#x27;kappa&#x27;)
+print(kappa_mat.to_string())
+
+import numpy as _np
+_k = kappa_mat.values
+_off = _k[_np.triu_indices_from(_k, k=1)]
+print(f&quot;\nMean pairwise kappa_w (severity, across 6 pairs): {_off.mean():.4f}&quot;)
+
+print(&quot;\n--- Agreement Rate (aggregated via mode) ---&quot;)
+agr_mat = pairwise_agreement(df, &#x27;item_id&#x27;, &#x27;evaluator&#x27;, &#x27;label&#x27;,
+                              agg_func=&#x27;mode&#x27;, metric=&#x27;accuracy&#x27;)
+print(agr_mat.to_string())
+</code></pre><section class="output" id="output-15-0" data-output-type="stream"><p class="output-label">Saved output 1 · stream</p><pre class="stream-text"><code>======================================================================
+PAIRWISE EVALUATOR AGREEMENT
+======================================================================
+
+--- Weighted Kappa (quadratic, mode-aggregated severity) ---
+                  gemini-2.5-flash  gpt-4o-mini  llama-70b  mistral-small
+gemini-2.5-flash            1.0000       0.9546     0.9685         0.9243
+gpt-4o-mini                 0.9546       1.0000     0.9399         0.9220
+llama-70b                   0.9685       0.9399     1.0000         0.9295
+mistral-small               0.9243       0.9220     0.9295         1.0000
+
+Mean pairwise kappa_w (severity, across 6 pairs): 0.9398
+
+--- Agreement Rate (aggregated via mode) ---
+                  gemini-2.5-flash  gpt-4o-mini  llama-70b  mistral-small
+gemini-2.5-flash              1.00         0.83       0.84           0.68
+gpt-4o-mini                   0.83         1.00       0.77           0.69
+llama-70b                     0.84         0.77       1.00           0.69
+mistral-small                 0.68         0.69       0.69           1.00
+</code></pre></section></section><section class="cell code-cell" id="cell-20" data-cell-type="code"><p class="cell-label">Original cell 20 · code · saved execution 17</p><pre class="cell-source"><code># --- Probability calibration: ECE overall and per evaluator --------------
+# NOTE: ECE computed on aggregated (per-item x per-evaluator) data to avoid
+# pseudo-replication from repeated prompt/temperature/seed combinations.
+print(&quot;=&quot; * 70)
+print(&quot;PROBABILITY CALIBRATION (ECE)&quot;)
+print(&quot;=&quot; * 70)
+
+# Aggregate: mode label + mean probability per item x evaluator
+agg_for_ece = df.groupby([&#x27;item_id&#x27;, &#x27;evaluator&#x27;]).agg(
+    label=(&#x27;label&#x27;, lambda x: x.mode().iloc[0]),
+    **{pc: (pc, &#x27;mean&#x27;) for pc in PROB_COLS}
+).reset_index()
+
+# Overall ECE (on aggregated data)
+cal_overall = calibration_metrics(agg_for_ece, PROB_COLS, &#x27;label&#x27;, LABEL_ORDER, n_bins=10)
+print(f&quot;\nOverall ECE: {cal_overall[&#x27;ece&#x27;]:.4f}&quot;)
+
+# Per-evaluator ECE (on aggregated data)
+print(&quot;\nPer-evaluator ECE:&quot;)
+for ev in sorted(agg_for_ece[&#x27;evaluator&#x27;].unique()):
+    sub = agg_for_ece[agg_for_ece[&#x27;evaluator&#x27;] == ev]
+    cal_ev = calibration_metrics(sub, PROB_COLS, &#x27;label&#x27;, LABEL_ORDER, n_bins=10)
+    print(f&quot;  {ev:&lt;20s}  ECE = {cal_ev[&#x27;ece&#x27;]:.4f}&quot;)
+</code></pre><section class="output" id="output-20-0" data-output-type="stream"><p class="output-label">Saved output 1 · stream</p><pre class="stream-text"><code>======================================================================
+PROBABILITY CALIBRATION (ECE)
+======================================================================
+
+Overall ECE: 0.1257
+
+Per-evaluator ECE:
+  gemini-2.5-flash      ECE = 0.1117
+  gpt-4o-mini           ECE = 0.1469
+  llama-70b             ECE = 0.1269
+  mistral-small         ECE = 0.1464
+</code></pre></section></section><footer><a href="index.html">Other analysis</a> · <a href="drug_review.html">Complete agreement notebook</a> · <a href="../supportive_analysis/index.html">Supportive G-study reports</a></footer></main></body></html>

@@ -1,187 +1,53 @@
 # Generalizability Theory for LLM-as-Evaluator Reliability
 
-[![GitHub repo](https://img.shields.io/badge/GitHub-gtheory--llm--evaluator--reliability-black)](https://github.com/Veronica0206/gtheory-llm-evaluator-reliability)
-[![R](https://img.shields.io/badge/R-lme4%20pipeline-blue)](https://www.r-project.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+Code and results accompanying the revised manuscript by **Jin Liu and Robert A. Perera**:
 
-Analysis code accompanying:
+> *Generalizability Theory for LLM-as-Evaluator Reliability: Univariate and Multivariate Variance Decomposition Across Models, Prompts, and Temperatures in Text Classification.*
 
-> Liu, J. (2026). *Generalizability Theory for LLM-as-Evaluator Reliability: Univariate and Multivariate Variance Decomposition Across Models, Prompts, and Temperatures in Text Classification*. 
+The study examines annotation reliability across evaluators, prompts, temperatures and seeds in Hate-Speech, Mental-Health and Drug-Review tasks. The revised primary analysis uses OpenMx for Gaussian ML/REML estimation, including jointly estimated cross-trait covariance components.
 
-This repository applies Generalizability Theory to LLM-as-evaluator reliability, decomposing variance across models, prompts, temperatures, seeds, items, and task-specific evaluation facets. Instead of treating a single accuracy or agreement score as the whole story, the code estimates where evaluator instability comes from and how dependable an evaluation design is under different measurement conditions.
+## Start here
 
-## Why this matters for AI evaluation
+**Download this repository and open [index.html](index.html) in a browser.** GitHub’s file view displays the HTML source. The reports contain the analysis code and saved outputs; no standalone Rmd, R, Python or notebook source files are distributed in this revision.
 
-LLM evaluators are increasingly used as model-as-judge systems, rubric graders, safety classifiers, and annotation assistants. Reliability matters because a system can look accurate in one prompt/model/temperature setting while being unstable under small evaluation-design changes.
-
-This framework is relevant to:
-
-- model-as-judge auditing and evaluator consistency assessment
-- safety classifier calibration and disagreement triage
-- prompt/model/temperature/seed variance decomposition and sensitivity analysis
-- cost-efficient evaluation design through D-study style projections
-- human oversight thresholds for deciding when automated judgments need review
-
-## Methods overview
-
-- **Crossed evaluation designs:** Treat items, evaluator models, prompts, temperatures, seeds, and related task facets as measurement-design components rather than incidental implementation details.
-- **Variance decomposition:** Use mixed-effects models to estimate how much variability is attributable to items, facets, interactions, and residual error.
-- **G-coefficients and dependability:** Compute reliability-style summaries such as `Erho2` and `Phi` to distinguish relative and absolute dependability.
-- **D-study projections:** Project how reliability changes when the number of prompts, evaluator models, temperatures, or seeds changes.
-- **Univariate and multivariate analysis:** Support single-outcome reliability analyses and multivariate stacked analyses for multi-flag or multi-aspect evaluation tasks.
-
-## For hiring reviewers
-
-This repo demonstrates:
-
-- measurement science applied to AI systems
-- reliability analysis beyond simple accuracy or one-off agreement
-- structured evaluation design for LLM behavior assessment
-- statistical rigor in model-as-judge and LLM evaluator auditing
-- reproducible R implementation for univariate and multivariate reliability workflows
-
-## Companion artifacts
-
-| Resource | Location |
+| Section | Contents |
 |---|---|
-| Derived data and analysis outputs | OSF: https://doi.org/10.17605/OSF.IO/K9CAJ |
-| Code (this repository) | GitHub: https://github.com/Veronica0206/gtheory-llm-evaluator-reliability |
+| [Labelling](labelling/index.html) | Pointers to the supplementary prompts and archived annotations; no labelling notebooks |
+| [Primary analysis: OpenMx](primary_analysis/index.html) | Five reports covering seven outcome sets, model comparisons, variance/covariance estimates, reliability and D-study intervals |
+| [Supportive analysis: lme4 and MoM](supportive_analysis/index.html) | Five earlier R1 lme4 reports and an index of their method-of-moments diagnostics |
+| [Other analysis](other_analysis/index.html) | Saved agreement, entropy and calibration analyses; links to facet-severity and descriptive diagnostics |
 
-## Repository structure and scope
+## Paired analysis reports
 
-This repository contains the R analysis pipeline for the **lme4-based univariate and multivariate generalizability theory** analyses reported in the manuscript.
+| Analysis | Primary OpenMx | Supportive lme4 |
+|---|---|---|
+| Hate-Speech, univariate | [HTML](primary_analysis/uni_hate_speech.html) | [HTML](supportive_analysis/lme4/uni_hate_speech.html) |
+| Mental-Health, seven- and three-level univariate | [HTML](primary_analysis/uni_mental_health.html) | [HTML](supportive_analysis/lme4/uni_mental_health.html) |
+| Drug-Review, univariate | [HTML](primary_analysis/uni_drug_review.html) | [HTML](supportive_analysis/lme4/uni_drug_review.html) |
+| Mental-Health, multivariate | [HTML](primary_analysis/mv_mental_health.html) | [HTML](supportive_analysis/lme4/mv_mental_health.html) |
+| Drug-Review, multivariate | [HTML](primary_analysis/mv_drug_review.html) | [HTML](supportive_analysis/lme4/mv_drug_review.html) |
 
-```
-.
-├── univariate/
-│   ├── compare_common_methods.R        # shared utilities and dataset specs
-│   ├── runs/                           # per-task driver scripts
-│   │   └── run_lme4_*.R                # lme4 fits for hate speech, mental
-│   │                                   # health (7L and 3L), and drug review
-│   └── src/
-│       ├── lme4_models.R               # univariate G-theory via lme4
-│       └── shared/
-│           ├── gtheory_utils.R         # shared computation helpers
-│           └── univariate_workflow.R   # design specs and data preparation
-├── multivariate/
-│   ├── runs/
-│   │   └── run_lme4_*.R                # multivariate drivers (mental health,
-│   │                                   # mental health 3-condition sensitivity,
-│   │                                   # drug review)
-│   └── src/
-│       ├── lme4_models.R               # multivariate stacked lmer
-│       └── shared/
-│           └── multivariate_workflow.R # multivariate design and stacking
-├── generate_disattenuated_figures.R    # Figure 1 of manuscript
-├── README.md
-├── LICENSE                             # MIT
-└── .gitignore
-```
+The OpenMx reports are the revised primary results. All seven outcome sets reached **1,000 accepted bootstrap fits and 100 completed jackknife fits**. Attempt counts, unavailable estimates and sparse-tail diagnostics remain visible. The final report refresh reused the completed fits.
 
-## Reproducing the analyses
+The earlier multivariate lme4 reports fit traits separately and use diagonal composites. Their Mental-Health three-condition subset (depression, anxiety and suicidal ideation) differs from OpenMx’s separate three OR-group model. They provide supportive reference analyses and retained diagnostics, not a comparison differing only in software.
 
-### 1. Get the data
+## Data and reproduction
 
-Download the LLM annotation CSVs from the OSF deposit:
+- [OSF data deposit](https://doi.org/10.17605/OSF.IO/K9CAJ).
+- [Data checksums, source extraction, environments and rerun instructions](reproducing.html).
+- Each R HTML includes its complete authoring source through **Code → Download Rmd**, as well as code, numerical outputs and session information. The source can be recovered locally from the HTML; no separate Rmd upload is needed.
+- The agreement reports preserve the saved notebook outputs and identify historical wording/provenance limitations. Labelling notebooks are omitted; the Supplementary Materials contain the prompts.
 
-> https://osf.io/k9caj/ → "Datasets with LLM Annotations" folder
+The annotation CSVs on OSF match the primary report fingerprints. Supportive and ancillary reruns also need three sampled-item CSVs, which are not in the current public deposit; their filenames and checksums are listed in the reproduction guide.
 
-Place all three files in a `data/` folder at the repository root:
+Input data and optional fit caches are not duplicated here. This GitHub update does not update the OSF deposit. No new annotations, model fits or resamples were generated for this publication package.
 
-```
-gtheory-llm-evaluator-reliability/
-└── data/
-    ├── hate_labeling_final.csv
-    ├── mh_labeling_final.csv
-    └── drug_labeling_final.csv
-```
+## Earlier public version
 
-(`data/` is gitignored; CSVs are not committed.)
+The previous public R implementation is preserved at the [pre-openmx-r1 tag](https://github.com/Veronica0206/gtheory-llm-evaluator-reliability/tree/pre-openmx-r1), based on commit `97dfc8d57999b0f16fc9a5c579d6f4eee037d2ba`. It is distinct from the supportive R1 HTML reports. Existing Git history is retained.
 
-### 2. Install R packages
+## Citation and license
 
-R 4.5+ recommended. Required packages:
+Please cite the manuscript and identify the repository commit used in your work. The associated data deposit DOI is [10.17605/OSF.IO/K9CAJ](https://doi.org/10.17605/OSF.IO/K9CAJ).
 
-```r
-install.packages(c(
-  "lme4",        # mixed-effects models
-  "dplyr",       # data wrangling
-  "tibble",      # tibbles
-  "numDeriv",    # Hessian/Jacobian for analytic Wald CIs
-  "boot"         # bootstrap (for univariate CIs)
-))
-```
-
-### 3. Run univariate analyses (manuscript Tables 1–5)
-
-From the repository root, source any of the lme4 driver scripts. For example:
-
-```r
-# Hate-Speech univariate analysis
-source("univariate/runs/run_lme4_hate_speech.R")
-```
-
-Each driver fits the three nested model specifications (full crossed, nested-seed, nested-seed-temperature) and computes variance components, $E\rho^2$, $\Phi$, bootstrap and Wald CIs, and D-study projections.
-
-Outputs are written to `univariate/outputs/lme4/<task>_results.RData`. The `outputs/` folder is gitignored; the final outputs used in the manuscript are archived on OSF.
-
-### 4. Run multivariate analyses (manuscript Tables 6–7)
-
-```r
-# Mental-Health 6-condition multivariate
-source("multivariate/runs/run_lme4_mental_health.R")
-
-# Drug-Review 4-aspect multivariate
-source("multivariate/runs/run_lme4_drug_review.R")
-
-# Mental-Health 3-condition sensitivity
-source("multivariate/runs/run_lme4_mental_health_sensitivity.R")
-```
-
-### 5. Reproduce Figure 1
-
-```r
-source("generate_disattenuated_figures.R")
-```
-
-Outputs PNG figures and the underlying CSV correlation matrices for the Mental-Health (6-flag) and Drug-Review (4-aspect) disattenuated universe-score correlations.
-
-## Citation
-
-If you use this code, please cite both the manuscript and this repository:
-
-```bibtex
-@article{liu2026gtheory,
-  author  = {Liu, Jin},
-  title   = {Generalizability Theory for {LLM-as-Evaluator} Reliability:
-             Univariate and Multivariate Variance Decomposition Across Models,
-             Prompts, and Temperatures in Text Classification},
-  year    = {2026}
-}
-
-@software{liu2026gtheory_code,
-  author  = {Liu, Jin},
-  title   = {Generalizability Theory for LLM-as-Evaluator Reliability:
-             Analysis Code},
-  year    = {2026},
-  url     = {https://github.com/Veronica0206/gtheory-llm-evaluator-reliability}
-}
-
-@misc{liu2026gtheory_data,
-  author  = {Liu, Jin},
-  title   = {LLM Annotation Reliability: A Generalizability Theory Analysis
-             of Hate Speech, Mental Health, and Drug Review Tasks},
-  year    = {2026},
-  doi     = {10.17605/OSF.IO/K9CAJ},
-  url     = {https://osf.io/k9caj/},
-  publisher = {Open Science Framework}
-}
-```
-
-## License
-
-Code released under the [MIT License](LICENSE). Data on OSF released under CC-BY-4.0.
-
-## Contact
-
-For questions about the code or analyses, please open a GitHub issue or contact the author at Veronica.Liu0206@gmail.com.
+Code is released under the [MIT License](LICENSE). Source datasets retain their respective licensing and attribution requirements; consult the OSF deposit and original corpus sources. Questions and reproducibility reports are welcome through GitHub issues.
