@@ -14,8 +14,8 @@ The study examines annotation reliability across evaluators, prompts, temperatur
 |---|---|
 | [Labelling](labelling/index.html) | Pointers to the supplementary prompts and archived annotations; no labelling notebooks |
 | [Primary analysis: OpenMx](primary_analysis/index.html) | Five reports covering seven outcome sets, model comparisons, variance/covariance estimates, reliability and D-study intervals |
-| [Supportive analysis: lme4 and MoM](supportive_analysis/index.html) | Five earlier R1 lme4 reports and an index of their method-of-moments diagnostics |
-| [Other analysis](other_analysis/index.html) | Saved agreement, entropy and calibration analyses; links to facet-severity and descriptive diagnostics |
+| [Supportive analysis: lme4 and MoM](supportive_analysis/index.html) | Five completed lme4 point-estimate reports and univariate method-of-moments diagnostics |
+| [Other analysis](other_analysis/index.html) | Saved agreement, entropy and calibration analyses; archived facet-severity intervals and cross-trait diagnostics |
 
 ## Paired analysis reports
 
@@ -29,22 +29,27 @@ The study examines annotation reliability across evaluators, prompts, temperatur
 
 The OpenMx reports are the revised primary results. All seven outcome sets reached **1,000 accepted bootstrap fits and 100 completed jackknife fits**. Attempt counts, unavailable estimates and sparse-tail diagnostics remain visible. The final report refresh reused the completed fits.
 
-The earlier multivariate lme4 reports fit traits separately and use diagonal composites. Their Mental-Health three-condition subset (depression, anxiety and suicidal ideation) differs from OpenMx’s separate three OR-group model. They provide supportive reference analyses and retained diagnostics, not a comparison differing only in software.
+The supplementary lme4 reports were rerun on 10 September 2026. They compare all **11 specifications** by ML and select the within-Family 2 BIC winner for REML point estimates; all seven outcome sets selected `f2_complete_drift`. They report components, reliability and D-study projections without bootstrap, jackknife or confidence intervals.
+
+The multivariate reports use one stacked model with trait-specific diagonal source variances and a shared residual variance, following the covariance restrictions of the original submission. They cover Mental-Health’s six binary flags and separate three OR groups, and Drug-Review’s four aspects. The Mental-Health groups are stress; anxiety or depression; and bipolar disorder, personality disorder or suicidal ideation. Groups can overlap. Cross-trait covariances are fixed at zero, so comparison with the primary full-covariance OpenMx analysis is a covariance-restriction sensitivity.
+
+The manuscript’s retained facet-severity intervals and cross-trait diagnostics are published separately in [Other analysis](other_analysis/index.html). These focused historical reports preserve their original code and saved outputs; they are distinct from the new point-only lme4 fits.
 
 ## Data and reproduction
 
 - [OSF data deposit](https://doi.org/10.17605/OSF.IO/K9CAJ).
 - [Data checksums, source extraction, environments and rerun instructions](reproducing.html).
-- Each R HTML includes its complete authoring source through **Code → Download Rmd**, as well as code, numerical outputs and session information. The source can be recovered locally from the HTML; no separate Rmd upload is needed.
+- Each OpenMx or lme4 G-theory HTML includes its complete authoring source through **Code → Download Rmd**, as well as code, numerical outputs and session information. The source can be recovered locally from the HTML; no separate Rmd upload is needed.
+- The five lme4 HTMLs additionally contain **106 downloadable output files**, with exact saved CSV and RDS bytes. Use each report’s “Download the complete point-estimate outputs” section.
 - The agreement reports preserve the saved notebook outputs and identify historical wording/provenance limitations. Labelling notebooks are omitted; the Supplementary Materials contain the prompts.
 
 The annotation CSVs on OSF match the primary report fingerprints. Supportive and ancillary reruns also need three sampled-item CSVs, which are not in the current public deposit; their filenames and checksums are listed in the reproduction guide.
 
-Input data and optional fit caches are not duplicated here. This GitHub update does not update the OSF deposit. No new annotations, model fits or resamples were generated for this publication package.
+Input data and optional fit caches are not duplicated here. This GitHub update does not update the OSF deposit. It publishes the completed lme4 rerun; packaging preserves those finished results without additional G-theory fitting, bootstrap resampling or annotation. Focused descriptive source checks verify retained outputs. Primary OpenMx report files remain unchanged.
 
 ## Earlier public version
 
-The previous public R implementation is preserved at the [pre-openmx-r1 tag](https://github.com/Veronica0206/gtheory-llm-evaluator-reliability/tree/pre-openmx-r1), based on commit `97dfc8d57999b0f16fc9a5c579d6f4eee037d2ba`. It is distinct from the supportive R1 HTML reports. Existing Git history is retained.
+The previous public R implementation is preserved at the [pre-openmx-r1 tag](https://github.com/Veronica0206/gtheory-llm-evaluator-reliability/tree/pre-openmx-r1), based on commit `97dfc8d57999b0f16fc9a5c579d6f4eee037d2ba`. It is distinct from the current supplementary lme4 HTML reports. Existing Git history is retained.
 
 ## Citation and license
 

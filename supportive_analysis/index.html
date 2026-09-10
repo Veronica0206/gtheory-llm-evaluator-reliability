@@ -1,1 +1,36 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Supportive analysis: lme4 and method of moments</title><style>body{font:17px/1.6 system-ui,-apple-system,sans-serif;color:#202e3c;background:#fbfcfe;margin:0}main{max-width:1060px;margin:3rem auto;padding:0 24px 60px}h1{font-size:2.2rem;line-height:1.2}h2{margin-top:2rem}a{color:#165a99}table{border-collapse:collapse;width:100%;display:block;overflow:auto}th,td{text-align:left;padding:11px 14px;border-bottom:1px solid #cbd5e1;vertical-align:top}th{background:#edf3f8}code,pre{font-family:ui-monospace,monospace;font-size:.85em}pre{background:#eef2f7;padding:16px;overflow:auto}nav{font-size:.95rem;margin-bottom:2rem}aside{border-left:4px solid #497b9b;padding:12px 20px;background:#edf4f8}li{margin:.4rem 0}.muted{color:#596575}</style></head><body><main><nav><a href="../index.html">Study reports</a> · <a href="https://osf.io/k9caj/">OSF data deposit</a></nav><h1>Supportive analysis: lme4 and method of moments</h1><p>These are the earlier R1 lme4 reports and the retained method-of-moments (MoM) diagnostics. Their code and saved numerical outputs are preserved. The <a href="../primary_analysis/index.html">OpenMx reports</a> supply the revised primary estimates.</p><ul><li><a href="lme4/uni_hate_speech.html">Hate-Speech: ordinal outcome</a></li><li><a href="lme4/uni_mental_health.html">Mental-Health: seven- and three-level outcomes</a></li><li><a href="lme4/uni_drug_review.html">Drug-Review: holistic sentiment</a></li><li><a href="lme4/mv_mental_health.html">Mental-Health: multivariate outcomes</a></li><li><a href="lme4/mv_drug_review.html">Drug-Review: four aspects</a></li></ul><p>The multivariate lme4 reports fit traits separately and use diagonal composites. Mental-Health’s three-condition subset contains depression, anxiety and suicidal ideation; it is different from OpenMx’s three OR-group model. These reports are not a joint lme4 residual-structure sensitivity and should not be read as a comparison differing only by software.</p><h2>Retained supplementary analyses</h2><p><a href="mom/index.html">Method-of-moments index</a>: signed saturated components, residual composition, scoring/rank sensitivities and entropy-stratum reliability. <a href="../other_analysis/index.html">Other-analysis index</a>: facet severity and descriptive cross-trait/binary-scale diagnostics.</p></main></body></html>
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>Supportive analysis: lme4 and method of moments</title><style>body{font:17px/1.6 system-ui,-apple-system,sans-serif;color:#202e3c;background:#fbfcfe;margin:0}main{max-width:1060px;margin:3rem auto;padding:0 24px 60px}h1{font-size:2.2rem;line-height:1.2}h2{margin-top:2rem}a{color:#165a99}table{border-collapse:collapse;width:100%;display:block;overflow:auto}th,td{text-align:left;padding:11px 14px;border-bottom:1px solid #cbd5e1;vertical-align:top}th{background:#edf3f8}code,pre{font-family:ui-monospace,monospace;font-size:.85em}pre{background:#eef2f7;padding:16px;overflow:auto}nav{font-size:.95rem;margin-bottom:2rem}aside{border-left:4px solid #497b9b;padding:12px 20px;background:#edf4f8}li{margin:.4rem 0}.muted{color:#596575}</style></head><body><main><nav><a href="../index.html">Study reports</a> · <a href="https://osf.io/k9caj/">OSF data deposit</a></nav><h1>Supportive analysis: lme4 and method of moments</h1>
+<p>These five lme4 reports contain the completed 10 September 2026 point-estimate
+analyses. All eleven family specifications are compared by ML, and the lowest-BIC
+member within Family 2 is refitted by REML for components, reliability and D-study
+projections. All seven outcome sets selected <code>f2_complete_drift</code>.
+The <a href="../primary_analysis/index.html">OpenMx reports</a> remain the primary
+manuscript analysis.</p><ul><li><a href="lme4/uni_hate_speech.html">Hate-Speech: ordinal outcome</a></li><li><a href="lme4/uni_mental_health.html">Mental-Health: seven- and three-level outcomes</a></li><li><a href="lme4/uni_drug_review.html">Drug-Review: holistic sentiment</a></li><li><a href="lme4/mv_mental_health.html">Mental-Health: six flags and three OR groups</a></li><li><a href="lme4/mv_drug_review.html">Drug-Review: four aspects</a></li></ul>
+<p>The multivariate reports fit traits together in a stacked model with
+trait-specific diagonal source variances and one residual variance shared across
+traits. Cross-trait covariances are fixed at zero. These are the covariance
+restrictions of the original submission, applied to the current eleven specifications;
+comparison with full-covariance OpenMx estimates is a covariance-restriction sensitivity.</p>
+<p>Mental-Health includes a six-flag model and a separate three-OR-group model:
+stress; anxiety or depression; and bipolar disorder, personality disorder or
+suicidal ideation. The group indicators may overlap. Drug-Review includes four
+aspects: efficacy, safety, burden and cost.</p>
+<p>The reports contain point estimates only, without bootstrap, jackknife or
+confidence intervals. Each HTML includes the complete downloadable Rmd source,
+fit diagnostics and saved output downloads—106 files across the five reports.
+<a href="../reproducing.html">Data and reproduction instructions</a> describe
+fresh runs and reuse of matching local point-fit checkpoints.</p>
+<h2>Univariate supplementary diagnostics</h2><p><a href="mom/index.html">Method-of-moments index</a>:
+signed saturated components, component absorption, scoring/rank sensitivities and
+entropy-stratum reliability. <a href="../other_analysis/index.html">Other-analysis index</a>:
+retained agreement and calibration analyses, with links to descriptive facet-severity
+point estimates.</p><h2>Archived interval and cross-trait evidence</h2>
+<p>The manuscript’s historical facet-severity intervals are preserved separately:
+<a href="../other_analysis/facet_severity_hate_speech.html#results">Hate-Speech</a>,
+<a href="../other_analysis/facet_severity_mental_health.html#results">Mental-Health</a>, and
+<a href="../other_analysis/facet_severity_drug_review.html#results">Drug-Review</a>.
+Retained <a href="../other_analysis/cross_trait_diagnostics_mental_health.html">Mental-Health</a>
+and <a href="../other_analysis/cross_trait_diagnostics_drug_review.html">Drug-Review</a>
+cross-trait diagnostics also have focused reports. These contain earlier saved
+code and outputs, with source-specific provenance; they are not part of the new
+point-only lme4 model fits above.</p></main></body></html>

@@ -1,0 +1,238 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Mental Health: descriptive cross-trait diagnostics</title><style>body{margin:0;background:#f4f6f9;color:#1d3046;font:16px/1.6 system-ui,-apple-system,sans-serif}main{max-width:1200px;margin:auto;padding:28px 24px 64px}header{background:#15324b;color:white;padding:28px;border-radius:12px}header a{color:#b9ebef}h1{line-height:1.2}h2{margin-top:0}section{background:white;border:1px solid #d7e1e9;border-radius:10px;padding:24px;margin-top:22px}a{color:#006b75}a:focus-visible,summary:focus-visible{outline:3px solid #e5a22b;outline-offset:3px}.notice{border-left:5px solid #cc8a29}.table-scroll{overflow:auto}table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums;font-size:14px}caption{text-align:left;font-weight:650;padding:12px 0}th,td{text-align:left;border-bottom:1px solid #d7e1e9;padding:8px;white-space:nowrap}th{background:#eaf1f6}pre{overflow:auto;white-space:pre;background:#eef3f7;padding:16px;font:13px/1.5 ui-monospace,monospace}code{overflow-wrap:anywhere}details{margin-top:16px}summary{cursor:pointer;font-weight:650}.meta{font-size:13px;color:#526277}footer{margin-top:24px}</style></head><body><main>
+<header><nav><a href="index.html">Other analyses</a> · <a href="../index.html">Repository home</a></nav><h1>Mental Health: descriptive cross-trait diagnostics</h1><p>Retained item-centered and evaluator-half comparisons; binary-scale checks for the six original flags.</p></header>
+<section class="notice"><h2>Scope and saved-analysis status</h2><p>These are descriptive calculations on the original annotation arrays. Their saved values are preserved from the earlier reports. An isolated validation executed the focused source against the same annotation CSVs and reproduced the displayed diagnostics without replacing the saved outputs. They are separate from both the primary joint OpenMx G-study and the new supplementary stacked lme4 G-study. No attenuation-adjusted correlations, old composite estimates, or historical G-theory bootstrap results are presented here.</p><p>Within-item correlations subtract each trait’s item mean and therefore combine several instrumentation and residual sources. Same-half and split-half comparisons average all three balanced partitions of four evaluators and both trait assignments. They change evaluator composition and call pairing while retaining prompts; their difference is not an identified proportion of shared-method error.</p></section>
+<section id="cross-trait"><h2>Descriptive cross-trait associations</h2><div class="table-scroll"><table><caption>Saved descriptive correlations; manuscript Supplementary Table S11</caption><thead><tr><th scope="col">Trait 1</th><th scope="col">Trait 2</th><th scope="col">Within-item r</th><th scope="col">Full-panel item-mean r</th><th scope="col">Same-half r</th><th scope="col">Split-half r</th><th scope="col">Cross-half SD</th><th scope="col">Same-half minus split-half</th></tr></thead><tbody><tr><td>depression</td><td>anxiety</td><td>0.1648</td><td>0.2105</td><td>0.2056</td><td>0.2017</td><td>0.0319</td><td>0.0039</td></tr><tr><td>depression</td><td>suicidal</td><td>0.2841</td><td>0.5689</td><td>0.5608</td><td>0.5479</td><td>0.0366</td><td>0.0129</td></tr><tr><td>depression</td><td>stress</td><td>0.1403</td><td>0.3617</td><td>0.3342</td><td>0.3373</td><td>0.0361</td><td>-0.0031</td></tr><tr><td>depression</td><td>bipolar</td><td>0.0475</td><td>0.1317</td><td>0.1295</td><td>0.1293</td><td>0.0331</td><td>0.0002</td></tr><tr><td>depression</td><td>personality disorder</td><td>0.0320</td><td>-0.0172</td><td>-0.0250</td><td>-0.0200</td><td>0.0471</td><td>-0.0049</td></tr><tr><td>anxiety</td><td>suicidal</td><td>0.0384</td><td>-0.0140</td><td>-0.0143</td><td>-0.0105</td><td>0.0538</td><td>-0.0038</td></tr><tr><td>anxiety</td><td>stress</td><td>0.2180</td><td>0.5353</td><td>0.5006</td><td>0.4855</td><td>0.0517</td><td>0.0151</td></tr><tr><td>anxiety</td><td>bipolar</td><td>-0.0056</td><td>0.0184</td><td>0.0161</td><td>0.0188</td><td>0.0580</td><td>-0.0027</td></tr><tr><td>anxiety</td><td>personality disorder</td><td>0.0522</td><td>0.2762</td><td>0.2481</td><td>0.2586</td><td>0.0469</td><td>-0.0105</td></tr><tr><td>suicidal</td><td>stress</td><td>0.0650</td><td>0.1242</td><td>0.1163</td><td>0.1107</td><td>0.0641</td><td>0.0056</td></tr><tr><td>suicidal</td><td>bipolar</td><td>0.0515</td><td>-0.1111</td><td>-0.1089</td><td>-0.1106</td><td>0.0178</td><td>0.0016</td></tr><tr><td>suicidal</td><td>personality disorder</td><td>0.0064</td><td>-0.0365</td><td>-0.0437</td><td>-0.0389</td><td>0.0672</td><td>-0.0048</td></tr><tr><td>stress</td><td>bipolar</td><td>0.0473</td><td>0.2896</td><td>0.2719</td><td>0.2727</td><td>0.0460</td><td>-0.0008</td></tr><tr><td>stress</td><td>personality disorder</td><td>0.1038</td><td>0.1436</td><td>0.1375</td><td>0.1193</td><td>0.0631</td><td>0.0182</td></tr><tr><td>bipolar</td><td>personality disorder</td><td>0.0385</td><td>-0.0428</td><td>-0.0411</td><td>-0.0408</td><td>0.0102</td><td>-0.0003</td></tr></tbody></table></div></section><section id="ceiling"><h2>Binary-scale checks</h2><p>These checks cover the six original flags. An item is positive when at least 108 of its 216 annotations flag the condition. Fréchet bounds concern manifest binary correlations. Probit correlations transform bounded item endorsement proportions; tetrachoric correlations use the item-level 2 × 2 table. A tetrachoric estimate is flagged when either condition occurs in fewer than ten items. The new three-group outcome is not part of these saved diagnostics.</p><div class="table-scroll"><table><caption>Saved binary-scale diagnostics; manuscript Supplementary Table S12</caption><thead><tr><th scope="col">Trait 1</th><th scope="col">Trait 2</th><th scope="col">p1</th><th scope="col">p2</th><th scope="col">n11</th><th scope="col">Minimum phi</th><th scope="col">Observed phi</th><th scope="col">Maximum phi</th><th scope="col">Probit-proportion r</th><th scope="col">Tetrachoric</th><th scope="col">Sparse flag</th></tr></thead><tbody><tr><td>depression</td><td>anxiety</td><td>0.4800</td><td>0.2700</td><td>13</td><td>-0.5843</td><td>0.0018</td><td>0.6330</td><td>0.4203</td><td>0.0030</td><td>FALSE</td></tr><tr><td>depression</td><td>suicidal</td><td>0.4800</td><td>0.2200</td><td>21</td><td>-0.5102</td><td>0.5045</td><td>0.5528</td><td>0.6201</td><td>0.8414</td><td>FALSE</td></tr><tr><td>depression</td><td>stress</td><td>0.4800</td><td>0.2500</td><td>17</td><td>-0.5547</td><td>0.2311</td><td>0.6009</td><td>0.4927</td><td>0.3868</td><td>FALSE</td></tr><tr><td>depression</td><td>bipolar</td><td>0.4800</td><td>0.0500</td><td>4</td><td>-0.2204</td><td>0.1469</td><td>0.2388</td><td>0.1821</td><td>0.4028</td><td>TRUE</td></tr><tr><td>depression</td><td>personality disorder</td><td>0.4800</td><td>0.0300</td><td>0</td><td>-0.1690</td><td>-0.1690</td><td>0.1830</td><td>0.2390</td><td>-0.9554</td><td>TRUE</td></tr><tr><td>anxiety</td><td>suicidal</td><td>0.2700</td><td>0.2200</td><td>4</td><td>-0.3230</td><td>-0.1055</td><td>0.8733</td><td>0.1451</td><td>-0.2083</td><td>FALSE</td></tr><tr><td>anxiety</td><td>stress</td><td>0.2700</td><td>0.2500</td><td>13</td><td>-0.3511</td><td>0.3251</td><td>0.9493</td><td>0.6986</td><td>0.5206</td><td>FALSE</td></tr><tr><td>anxiety</td><td>bipolar</td><td>0.2700</td><td>0.0500</td><td>0</td><td>-0.1395</td><td>-0.1395</td><td>0.3772</td><td>0.1044</td><td>-0.9416</td><td>TRUE</td></tr><tr><td>anxiety</td><td>personality disorder</td><td>0.2700</td><td>0.0300</td><td>2</td><td>-0.1070</td><td>0.1571</td><td>0.2892</td><td>0.4047</td><td>0.4433</td><td>TRUE</td></tr><tr><td>suicidal</td><td>stress</td><td>0.2200</td><td>0.2500</td><td>6</td><td>-0.3066</td><td>0.0279</td><td>0.9199</td><td>0.2290</td><td>0.0524</td><td>FALSE</td></tr><tr><td>suicidal</td><td>bipolar</td><td>0.2200</td><td>0.0500</td><td>0</td><td>-0.1218</td><td>-0.1218</td><td>0.4320</td><td>-0.0497</td><td>-0.9496</td><td>TRUE</td></tr><tr><td>suicidal</td><td>personality disorder</td><td>0.2200</td><td>0.0300</td><td>0</td><td>-0.0934</td><td>-0.0934</td><td>0.3311</td><td>0.1041</td><td>-0.9426</td><td>TRUE</td></tr><tr><td>stress</td><td>bipolar</td><td>0.2500</td><td>0.0500</td><td>3</td><td>-0.1325</td><td>0.1854</td><td>0.3974</td><td>0.3468</td><td>0.4397</td><td>TRUE</td></tr><tr><td>stress</td><td>personality disorder</td><td>0.2500</td><td>0.0300</td><td>1</td><td>-0.1015</td><td>0.0338</td><td>0.3046</td><td>0.3130</td><td>0.1085</td><td>TRUE</td></tr><tr><td>bipolar</td><td>personality disorder</td><td>0.0500</td><td>0.0300</td><td>0</td><td>-0.0403</td><td>-0.0403</td><td>0.7666</td><td>-0.0144</td><td>-0.8917</td><td>TRUE</td></tr></tbody></table></div></section><section id="source"><h2>Complete focused reproduction source</h2><p><a download="cross_trait_diagnostics_mental_health.Rmd" href="data:text/plain;charset=utf-8;base64,LS0tCnRpdGxlOiAiTWVudGFsIEhlYWx0aDogcmV0YWluZWQgZGVzY3JpcHRpdmUgY3Jvc3MtdHJhaXQgZGlhZ25vc3RpY3MiCm91dHB1dDoKICBodG1sX2RvY3VtZW50OgogICAgc2VsZl9jb250YWluZWQ6IHRydWUKICAgIGNvZGVfZG93bmxvYWQ6IHRydWUKLS0tCgpUaGlzIGZvY3VzZWQgc291cmNlIHJlcHJvZHVjZXMgZGVzY3JpcHRpdmUgZGlhZ25vc3RpY3Mgb25seS4gSXQgY29udGFpbnMgbm8gRy10aGVvcnkgZml0cywKYXR0ZW51YXRpb24gYWRqdXN0bWVudCwgbW9kZWwgc2VsZWN0aW9uLCBib290c3RyYXAsIG9yIGNvbXBvc2l0ZSBjb3ZhcmlhbmNlIHNjZW5hcmlvcy4KU2F2ZSB0aGlzIFJtZCB1bmRlciBvdGhlcl9hbmFseXNpcy8gYW5kIHBsYWNlIHRoZSBPU0YgYW5ub3RhdGlvbiBDU1YgaW4gLi4vZGF0YS8uClRoZSBkaXNwbGF5ZWQgcmVzdWx0cyBhcmUgcmV0YWluZWQgaGlzdG9yaWNhbCBvdXRwdXRzOyBzZXBhcmF0ZSByZXByb2R1Y3Rpb24gY2hlY2tzIGRvIG5vdCByZXBsYWNlIHRob3NlIHNhdmVkIHZhbHVlcy4KCmBgYHtyIHNldHVwfQpEQVRBX0RJUiA8LSAiLi4vZGF0YSIKREFUQVNFVCA8LSAibWVudGFsX2hlYWx0aF82ZmxhZyIKRkFDRVRTIDwtIGMoIml0ZW0iLCAiZXZhbHVhdG9yIiwgInByb21wdCIsICJ0ZW1wIiwgInNlZWQiKQpEU0laRSA8LSBjKGl0ZW0gPSAxMDAsIGV2YWx1YXRvciA9IDQsIHByb21wdCA9IDMsIHRlbXAgPSA2LCBzZWVkID0gMykKc3RvcGlmbm90KHJlcXVpcmVOYW1lc3BhY2UoImtuaXRyIiwgcXVpZXRseSA9IFRSVUUpKQpsaWJyYXJ5KHBiaXZub3JtKQpzdG9waWZub3QoaWRlbnRpY2FsKHVubmFtZSh0b29sczo6bWQ1c3VtKGZpbGUucGF0aChEQVRBX0RJUiwgIm1oX2xhYmVsaW5nX2ZpbmFsLmNzdiIpKSksICI5MzgyNDc3OTEyNDg0M2UzNGM0MjZjODk4OGRkNjI5ZSIpKQpUUkFJVFMgPC0gYyhkZXByZXNzaW9uID0gImRlcHJlc3Npb25fcHJlc2VudCIsIGFueGlldHkgPSAiYW54aWV0eV9wcmVzZW50IiwKICAgICAgICAgICAgc3VpY2lkYWwgICA9ICJzdWljaWRhbF9wcmVzZW50IiwgICBzdHJlc3MgID0gInN0cmVzc19wcmVzZW50IiwKICAgICAgICAgICAgYmlwb2xhciAgICA9ICJiaXBvbGFyX3ByZXNlbnQiLAogICAgICAgICAgICBwZXJzb25hbGl0eV9kaXNvcmRlciA9ICJwZXJzb25hbGl0eV9kaXNvcmRlcl9wcmVzZW50IikKYGBgCgpgYGB7ciBsb2FkLWRhdGF9CiMnIE9uZSB0cmFpdCBpbiBsb25nIGZvcm0gdW5kZXIgc3RhbmRhcmQgZmFjZXQgbmFtZXMuCiMgVGhlIENTViBpcyByZWFkIG9uY2UgYW5kIGNhY2hlZDogYnVpbGRfdHJhaXQoKSBpcyBjYWxsZWQgb25jZSBwZXIgdHJhaXQsIHNvIGEKIyBwbGFpbiByZWFkLmNzdigpIGhlcmUgcmUtcGFyc2VzIHRoZSBzYW1lIDIxLDYwMC1yb3cgZmlsZSBmb3VyIG9yIHNpeCB0aW1lcy4KLnRyYWl0X2NhY2hlIDwtIG5ldy5lbnYocGFyZW50ID0gZW1wdHllbnYoKSkKcmVhZF9vbmNlIDwtIGZ1bmN0aW9uKHBhdGgpIHsKICBrZXkgPC0gbm9ybWFsaXplUGF0aChwYXRoLCBtdXN0V29yayA9IFRSVUUpCiAgaWYgKGlzLm51bGwoLnRyYWl0X2NhY2hlW1trZXldXSkpIC50cmFpdF9jYWNoZVtba2V5XV0gPC0gcmVhZC5jc3Yoa2V5LCBzdHJpbmdzQXNGYWN0b3JzID0gRkFMU0UpCiAgLnRyYWl0X2NhY2hlW1trZXldXQp9CgpidWlsZF90cmFpdCA8LSBmdW5jdGlvbihkYXRhX2RpciwgY29sKSB7CiAgZCA8LSByZWFkX29uY2UoZmlsZS5wYXRoKGRhdGFfZGlyLCAibWhfbGFiZWxpbmdfZmluYWwuY3N2IikpCiAgeCA8LSB0b2xvd2VyKHRyaW13cyhhcy5jaGFyYWN0ZXIoZFtbY29sXV0pKSkKICB2IDwtIGlmZWxzZSh4ICVpbiUgYygidHJ1ZSIsICIxIiksIDEsCiAgICAgICBpZmVsc2UoeCAlaW4lIGMoImZhbHNlIiwgIjAiKSwgMCwgTkFfcmVhbF8pKQogIGlmIChhbnkoaXMubmEodikpKSBzdG9wKCJ1bm1hcHBlZCB2YWx1ZXMgaW4gIiwgY29sKQogIGRhdGEuZnJhbWUoc2NvcmUgPSB2LCBpdGVtID0gZmFjdG9yKGQkaXRlbV9pZCksCiAgICAgICAgICAgICBldmFsdWF0b3IgPSBmYWN0b3IoZCRldmFsdWF0b3IpLCBwcm9tcHQgPSBmYWN0b3IoZCRwcm9tcHRfdHlwZSksCiAgICAgICAgICAgICB0ZW1wID0gZmFjdG9yKGQkdGVtcGVyYXR1cmUpLCBzZWVkID0gZmFjdG9yKGQkc2VlZCksCiAgICAgICAgICAgICBzdHJpbmdzQXNGYWN0b3JzID0gRkFMU0UpCn0KClREIDwtIGxhcHBseShUUkFJVFMsIGZ1bmN0aW9uKGNvbCkgYnVpbGRfdHJhaXQoREFUQV9ESVIsIGNvbCkpCmBgYAoKYGBge3IgdmFsaWRhdGUtYXJyYXl9CiMnIFJlc2hhcGUgYSBjb21wbGV0ZSBiYWxhbmNlZCBsb25nIGZyYW1lIGludG8gYSBmaXZlLXdheSBhcnJheSwgZmFjZXRzIG9uIGF4ZXMKIycgaW4gRkFDRVRTIG9yZGVyIChpdGVtIGZpcnN0KS4gIEVycm9ycyByYXRoZXIgdGhhbiBzaWxlbnRseSBmaWxsaW5nLgp0b19hcnJheSA8LSBmdW5jdGlvbihkZiwgc2NvcmVfY29sID0gInNjb3JlIikgewogIGxldnMgPC0gbGFwcGx5KEZBQ0VUUywgZnVuY3Rpb24oZikgc29ydCh1bmlxdWUoZGZbW2ZdXSkpKQogIG5hbWVzKGxldnMpIDwtIEZBQ0VUUwogIGRpbXMgPC0gdmFwcGx5KGxldnMsIGxlbmd0aCwgaW50ZWdlcigxKSkKICBpZHggIDwtIHZhcHBseShGQUNFVFMsIGZ1bmN0aW9uKGYpIG1hdGNoKGRmW1tmXV0sIGxldnNbW2ZdXSksCiAgICAgICAgICAgICAgICAgaW50ZWdlcihucm93KGRmKSkpCiAgbGluICA8LSBpZHhbLCAxXQogIG11bHQgPC0gMQogIGZvciAoaiBpbiBzZXFfYWxvbmcoRkFDRVRTKVstMV0pIHsKICAgIG11bHQgPC0gbXVsdCAqIGRpbXNbaiAtIDFdCiAgICBsaW4gIDwtIGxpbiArIChpZHhbLCBqXSAtIDEpICogbXVsdAogIH0KICBpZiAoYW55RHVwbGljYXRlZChsaW4pKSAgICAgICAgc3RvcCgiZHVwbGljYXRlIGZhY3RvciBjb21iaW5hdGlvbnMiKQogIGlmIChsZW5ndGgobGluKSAhPSBwcm9kKGRpbXMpKSBzdG9wKCJkZXNpZ24gaXMgbm90IGNvbXBsZXRlL2JhbGFuY2VkIikKICBhcnIgPC0gYXJyYXkoTkFfcmVhbF8sIGRpbSA9IHVubmFtZShkaW1zKSkKICBhcnJbbGluXSA8LSBkZltbc2NvcmVfY29sXV0KICBpZiAoYW55TkEoYXJyKSkgICAgICAgICAgICAgICAgc3RvcCgiZGVzaWduIGlzIG5vdCBjb21wbGV0ZS9iYWxhbmNlZCIpCiAgYXJyCn0KCkFSUiA8LSBsYXBwbHkoVEQsIHRvX2FycmF5KQpmb3IgKHRuIGluIG5hbWVzKEFSUikpIHsKICBzdG9waWZub3QoaWRlbnRpY2FsKGRpbShBUlJbW3RuXV0pLCB1bm5hbWUoYXMuaW50ZWdlcihEU0laRSkpKSkKfQpjYXQoImFsbCBzaXggdHJhaXRzIG9uIHRoZSBkZWNsYXJlZCBkZXNpZ246IiwKICAgIHBhc3RlKGRpbShBUlJbWzFdXSksIGNvbGxhcHNlID0gIiB4ICIpLCAiXG4iKQpgYGAKCmBgYHtyIGRlc2NyaXB0aXZlLWNyb3NzLXRyYWl0fQojIEl0ZW0tbWVhbiBjb3JyZWxhdGlvbnMgYXJlIGNhbGN1bGF0ZWQgZGlyZWN0bHkgZnJvbSB0aGUgYW5ub3RhdGlvbnMgaGVyZS4KIyBUaGUgaGlzdG9yaWNhbCBzb3VyY2UgdXNlZCBwcm9wb3J0aW9uYWwtc2hyaW5rYWdlIEJMVVAgY29ycmVsYXRpb25zIGFuZAojIGFzc2VydGVkIHRoZWlyIGVxdWFsaXR5IHRvIHRoZXNlIGl0ZW0tbWVhbiBjb3JyZWxhdGlvbnMgdG8gdG9sZXJhbmNlIDFlLTguCiMgVGhlIHRyYWl0IGZyYW1lcyBjb21lIGZyb20gb25lIENTViBpbiBvbmUgcm93IG9yZGVyOyB0aGUgc3BsaXQgYmVsb3cgaW5kZXhlcwojIGV2ZXJ5IHRyYWl0IHdpdGggYSBtYXNrIGJ1aWx0IG9uIHRoZSBmaXJzdCwgc28gdGhhdCBtdXN0IGhvbGQuCkFMSUdOX0ZBQ0VUUyA8LSBjKCJpdGVtIiwgImV2YWx1YXRvciIsICJwcm9tcHQiLCAidGVtcCIsICJzZWVkIikKc3RvcGlmbm90KGFsbCh2YXBwbHkoVEQsIGZ1bmN0aW9uKHgpCiAgaWRlbnRpY2FsKHhbQUxJR05fRkFDRVRTXSwgVERbWzFdXVtBTElHTl9GQUNFVFNdKSwgbG9naWNhbCgxKSkpKQpUUkFJVF9QQUlSUyA8LSBjb21ibihuYW1lcyhUUkFJVFMpLCAyLCBzaW1wbGlmeSA9IEZBTFNFKQoKcmVzaWRfaWMgPC0gc2FwcGx5KG5hbWVzKFRSQUlUUyksIGZ1bmN0aW9uKHRuKSB7CiAgeCA8LSBURFtbdG5dXTsgeCRzY29yZSAtIGF2ZSh4JHNjb3JlLCB4JGl0ZW0sIEZVTiA9IG1lYW4pCn0pClJfZXJyICAgPC0gY29yKHJlc2lkX2ljKQoKZXZzIDwtIHNvcnQodW5pcXVlKGFzLmNoYXJhY3RlcihURFtbMV1dJGV2YWx1YXRvcikpKQpzdG9waWZub3QobGVuZ3RoKGV2cykgPT0gNEwpCml0ZW1fbWVhbiA8LSBmdW5jdGlvbihrZWVwKSBzYXBwbHkobmFtZXMoVFJBSVRTKSwgZnVuY3Rpb24odG4pIHsKICB4IDwtIFREW1t0bl1dOyB0YXBwbHkoeCRzY29yZVtrZWVwXSwgeCRpdGVtW2tlZXBdLCBtZWFuKQp9KQphbGxfbSAgPC0gaXRlbV9tZWFuKHJlcChUUlVFLCBucm93KFREW1sxXV0pKSkKIyBUaGUgdGhyZWUgZGlzdGluY3QgMi12cy0yIHNwbGl0cyAodGhlIG90aGVyIHRocmVlIGNvbWJpbmF0aW9ucyBhcmUgdGhlaXIgY29tcGxlbWVudHMpLgpzcGxpdHMgPC0gY29tYm4oZXZzLCAyLCBzaW1wbGlmeSA9IEZBTFNFKVsxOjNdCmhhbHZlcyA8LSBsYXBwbHkoc3BsaXRzLCBmdW5jdGlvbihBKSB7CiAgaW5BIDwtIFREW1sxXV0kZXZhbHVhdG9yICVpbiUgQQogIGxpc3QoQSA9IGl0ZW1fbWVhbihpbkEpLCBCID0gaXRlbV9tZWFuKCFpbkEpKQp9KQptdl9zYW1lY2FsbF92c19zcGxpdGNhbGwgPC0gZG8uY2FsbChyYmluZCwgbGFwcGx5KFRSQUlUX1BBSVJTLCBmdW5jdGlvbihwcikgewogIGEgPC0gcHJbMV07IGIgPC0gcHJbMl0KICBjcm9zcyAgPC0gdW5saXN0KGxhcHBseShoYWx2ZXMsIGZ1bmN0aW9uKGgpIGMoY29yKGgkQVssIGFdLCBoJEJbLCBiXSksIGNvcihoJEJbLCBhXSwgaCRBWywgYl0pKSkpCiAgd2l0aGluIDwtIHVubGlzdChsYXBwbHkoaGFsdmVzLCBmdW5jdGlvbihoKSBjKGNvcihoJEFbLCBhXSwgaCRBWywgYl0pLCBjb3IoaCRCWywgYV0sIGgkQlssIGJdKSkpKQogIGRhdGEuZnJhbWUoZGF0YXNldCA9IERBVEFTRVQsIHRyYWl0XzEgPSBhLCB0cmFpdF8yID0gYiwKICAgICAgICAgICAgIHJfc2FtZV9jYWxsX2FsbCAgPSBjb3IoYWxsX21bLCBhXSwgYWxsX21bLCBiXSksCiAgICAgICAgICAgICByX3NhbWVfY2FsbF9oYWxmID0gbWVhbih3aXRoaW4pLAogICAgICAgICAgICAgcl9zcGxpdF9jYWxsICAgICA9IG1lYW4oY3Jvc3MpLAogICAgICAgICAgICAgcl9zcGxpdF9jYWxsX3NkICA9IHNkKGNyb3NzKSwKICAgICAgICAgICAgIHNoYXJlZF9tZXRob2RfaW5mbGF0aW9uID0gbWVhbih3aXRoaW4pIC0gbWVhbihjcm9zcyksIHJvdy5uYW1lcyA9IE5VTEwpCn0pKQoKCm12X2Nyb3NzX3RyYWl0X2Vycm9yX2NvcnIgPC0gZG8uY2FsbChyYmluZCwgbGFwcGx5KFRSQUlUX1BBSVJTLCBmdW5jdGlvbihwcikgewogIGRhdGEuZnJhbWUoZGF0YXNldCA9IERBVEFTRVQsIHRyYWl0XzEgPSBwclsxXSwgdHJhaXRfMiA9IHByWzJdLAogICAgICAgICAgICAgY3Jvc3NfdHJhaXRfZXJyb3JfciA9IFJfZXJyW3ByWzFdLCBwclsyXV0sCiAgICAgICAgICAgICByX2l0ZW1fbWVhbiA9IGNvcihhbGxfbVssIHByWzFdXSwgYWxsX21bLCBwclsyXV0pLCByb3cubmFtZXMgPSBOVUxMKQp9KSkKa25pdHI6OmthYmxlKG12X2Nyb3NzX3RyYWl0X2Vycm9yX2NvcnIsIGRpZ2l0cyA9IDQsIHJvdy5uYW1lcyA9IEZBTFNFKQprbml0cjo6a2FibGUobXZfc2FtZWNhbGxfdnNfc3BsaXRjYWxsLCBkaWdpdHMgPSA0LCByb3cubmFtZXMgPSBGQUxTRSkKYGBgCgpgYGB7ciBiaW5hcnktc2NhbGUtY2hlY2tzfQojJyBGcsOpY2hldCBib3VuZHMgb24gdGhlIHBoaSBjb3JyZWxhdGlvbiBvZiB0d28gYmluYXJpZXMgd2l0aCBtYXJnaW5hbHMgcCwgcS4KcGhpX2JvdW5kcyA8LSBmdW5jdGlvbihwLCBxKSB7CiAgaWYgKG1pbihwLCBxKSA8PSAwIHx8IG1heChwLCBxKSA+PSAxKSByZXR1cm4oYyhsbyA9IE5BX3JlYWxfLCBoaSA9IE5BX3JlYWxfKSkKICBkZW4gPC0gc3FydChwICogKDEgLSBwKSAqIHEgKiAoMSAtIHEpKQogIGMobG8gPSAobWF4KDAsIHAgKyBxIC0gMSkgLSBwICogcSkgLyBkZW4sIGhpID0gKG1pbihwLCBxKSAtIHAgKiBxKSAvIGRlbikKfQojJyBNYXhpbXVtLWxpa2VsaWhvb2QgdGV0cmFjaG9yaWMgY29ycmVsYXRpb24gb2YgdHdvIGJpbmFyeSB2ZWN0b3JzLgp0ZXRyYWNob3JpYyA8LSBmdW5jdGlvbih4LCB5KSB7CiAgbjExIDwtIHN1bSh4ID09IDEgJiB5ID09IDEpOyBuMTAgPC0gc3VtKHggPT0gMSAmIHkgPT0gMCkKICBuMDEgPC0gc3VtKHggPT0gMCAmIHkgPT0gMSk7IG4wMCA8LSBzdW0oeCA9PSAwICYgeSA9PSAwKQogIG4gPC0gbjExICsgbjEwICsgbjAxICsgbjAwCiAgcHggPC0gKG4xMSArIG4xMCkgLyBuOyBweSA8LSAobjExICsgbjAxKSAvIG4KICBpZiAobWluKHB4LCBweSkgPD0gMCB8fCBtYXgocHgsIHB5KSA+PSAxKSByZXR1cm4oTkFfcmVhbF8pCiAgaHggPC0gcW5vcm0ocHgpOyBoeSA8LSBxbm9ybShweSkKICBuZWdsbCA8LSBmdW5jdGlvbihyKSB7CiAgICByIDwtIG1heChtaW4ociwgMC45OTkpLCAtMC45OTkpCiAgICBwMTEgPC0gcGJpdm5vcm0oaHgsIGh5LCByaG8gPSByKQogICAgcDExIDwtIG1heChtaW4ocDExLCBtaW4ocHgsIHB5KSAtIDFlLTEyKSwgMWUtMTIpCiAgICBwcyAgPC0gcG1heChjKHAxMSwgcHggLSBwMTEsIHB5IC0gcDExLCAxIC0gcHggLSBweSArIHAxMSksIDFlLTEyKQogICAgLShuMTEgKiBsb2cocHNbMV0pICsgbjEwICogbG9nKHBzWzJdKSArIG4wMSAqIGxvZyhwc1szXSkgKyBuMDAgKiBsb2cocHNbNF0pKQogIH0KICBvcHRpbWl6ZShuZWdsbCwgaW50ZXJ2YWwgPSBjKC0wLjk5LCAwLjk5KSkkbWluaW11bQp9Cgpwcm9wICAgPC0gYXMuZGF0YS5mcmFtZShzYXBwbHkobmFtZXMoVFJBSVRTKSwgZnVuY3Rpb24odG4pIHRhcHBseShURFtbdG5dXSRzY29yZSwgVERbW3RuXV0kaXRlbSwgbWVhbikpKQpuX29icyAgPC0gbnJvdyhURFtbMV1dKSAvIG5sZXZlbHMoVERbWzFdXSRpdGVtKQp0aWVfY291bnQgPC0gdmFwcGx5KHByb3AsIGZ1bmN0aW9uKHYpIHN1bSh2ID09IDAuNSksIGludGVnZXIoMSkpCmJpbm1haiA8LSBhcy5kYXRhLmZyYW1lKGxhcHBseShwcm9wLCBmdW5jdGlvbih2KSBhcy5pbnRlZ2VyKHYgPj0gMC41KSkpCnByb2JpdCA8LSBhcy5kYXRhLmZyYW1lKGxhcHBseShwcm9wLCBmdW5jdGlvbih2KSBxbm9ybShwbWluKHBtYXgodiwgMC41IC8gbl9vYnMpLCAxIC0gMC41IC8gbl9vYnMpKSkpCmNhdCgiRXhhY3QgNTAvNTAgdGllcyBhc3NpZ25lZCBwcmVzZW50OiIsCiAgICBwYXN0ZShuYW1lcyh0aWVfY291bnQpLCB0aWVfY291bnQsIHNlcCA9ICI9IiwgY29sbGFwc2UgPSAiLCAiKSwgIlxuIikKCm12X3RldHJhY2hvcmljIDwtIGRvLmNhbGwocmJpbmQsIGxhcHBseShUUkFJVF9QQUlSUywgZnVuY3Rpb24ocHIpIHsKICBhIDwtIHByWzFdOyBiIDwtIHByWzJdCiAgcGEgPC0gbWVhbihiaW5tYWpbW2FdXSk7IHBiIDwtIG1lYW4oYmlubWFqW1tiXV0pOyBibmQgPC0gcGhpX2JvdW5kcyhwYSwgcGIpCiAgbl9wb3MgPC0gbWluKHN1bShiaW5tYWpbW2FdXSksIHN1bShiaW5tYWpbW2JdXSkpCiAgcGhpIDwtIGlmIChsZW5ndGgodW5pcXVlKGJpbm1haltbYV1dKSkgPiAxICYmIGxlbmd0aCh1bmlxdWUoYmlubWFqW1tiXV0pKSA+IDEpCiAgICBjb3IoYmlubWFqW1thXV0sIGJpbm1haltbYl1dKSBlbHNlIE5BX3JlYWxfCiAgZGF0YS5mcmFtZShkYXRhc2V0ID0gREFUQVNFVCwgdHJhaXRfMSA9IGEsIHRyYWl0XzIgPSBiLAogICAgICAgICAgICAgYmFzZV9yYXRlXzEgPSBwYSwgYmFzZV9yYXRlXzIgPSBwYiwgbWluX3Bvc2l0aXZlX2l0ZW1zID0gbl9wb3MsCiAgICAgICAgICAgICBwZWFyc29uX3BoaSA9IHBoaSwgcGhpX21pbiA9IGJuZFtbImxvIl1dLCBwaGlfbWF4ID0gYm5kW1siaGkiXV0sCiAgICAgICAgICAgICBwb3NpdGlvbl9pbl9yYW5nZSA9IChwaGkgLSBibmRbWyJsbyJdXSkgLyAoYm5kW1siaGkiXV0gLSBibmRbWyJsbyJdXSksCiAgICAgICAgICAgICBhdF9sb3dlcl9ib3VuZCA9IGlzVFJVRShhYnMocGhpIC0gYm5kW1sibG8iXV0pIDwgMC4wMDUpLAogICAgICAgICAgICAgbl9jb29jY3VyID0gc3VtKGJpbm1haltbYV1dID09IDEgJiBiaW5tYWpbW2JdXSA9PSAxKSwKICAgICAgICAgICAgIHRldHJhY2hvcmljID0gdGV0cmFjaG9yaWMoYmlubWFqW1thXV0sIGJpbm1haltbYl1dKSwKICAgICAgICAgICAgIHByb2JpdF9zY2FsZV9yID0gY29yKHByb2JpdFtbYV1dLCBwcm9iaXRbW2JdXSksCiAgICAgICAgICAgICB0ZXRyYWNob3JpY191bnN0YWJsZSA9IG5fcG9zIDwgMTAsIHJvdy5uYW1lcyA9IE5VTEwpCn0pKQprbml0cjo6a2FibGUobXZfdGV0cmFjaG9yaWMsIGRpZ2l0cyA9IDQsIHJvdy5uYW1lcyA9IEZBTFNFLAogICAgICAgICAgICAgY2FwdGlvbiA9ICJEaXNjcmV0aXphdGlvbiBjZWlsaW5nOiBvYnNlcnZlZCBwaGkgYWdhaW5zdCBpdHMgYXR0YWluYWJsZSByYW5nZSwgd2l0aCB0ZXRyYWNob3JpYyBhbmQgcHJvYml0LXNjYWxlIGFsdGVybmF0aXZlcy4iKQpgYGAK">Download the R Markdown source embedded in this HTML</a>. Save it in <code>other_analysis/</code>. Put <code>mh_labeling_final.csv</code> from <a href="https://osf.io/k9caj/">OSF</a> in <code>../data/</code>, then render the downloaded source with R Markdown. Required packages are <code>rmarkdown</code>, <code>knitr</code> and <code>pbivnorm</code>. No lme4 or OpenMx model fit is called.</p><p>The focused source retains the historical preprocessing, item-centering, evaluator-half calculations and binary-check functions. Publication edits remove unrelated model-fitting dependencies and historical attenuation calculations, calculate item-mean correlations directly, add the input checksum check, and use a repository-relative data path. The old source asserted equality of its proportional-shrinkage BLUP correlations and item-mean correlations to tolerance 10⁻⁸. That equality was also checked against the saved result columns during packaging.</p><details><summary>View all focused R Markdown code</summary><pre><code>---
+title: &quot;Mental Health: retained descriptive cross-trait diagnostics&quot;
+output:
+  html_document:
+    self_contained: true
+    code_download: true
+---
+
+This focused source reproduces descriptive diagnostics only. It contains no G-theory fits,
+attenuation adjustment, model selection, bootstrap, or composite covariance scenarios.
+Save this Rmd under other_analysis/ and place the OSF annotation CSV in ../data/.
+The displayed results are retained historical outputs; separate reproduction checks do not replace those saved values.
+
+```{r setup}
+DATA_DIR &lt;- &quot;../data&quot;
+DATASET &lt;- &quot;mental_health_6flag&quot;
+FACETS &lt;- c(&quot;item&quot;, &quot;evaluator&quot;, &quot;prompt&quot;, &quot;temp&quot;, &quot;seed&quot;)
+DSIZE &lt;- c(item = 100, evaluator = 4, prompt = 3, temp = 6, seed = 3)
+stopifnot(requireNamespace(&quot;knitr&quot;, quietly = TRUE))
+library(pbivnorm)
+stopifnot(identical(unname(tools::md5sum(file.path(DATA_DIR, &quot;mh_labeling_final.csv&quot;))), &quot;93824779124843e34c426c8988dd629e&quot;))
+TRAITS &lt;- c(depression = &quot;depression_present&quot;, anxiety = &quot;anxiety_present&quot;,
+            suicidal   = &quot;suicidal_present&quot;,   stress  = &quot;stress_present&quot;,
+            bipolar    = &quot;bipolar_present&quot;,
+            personality_disorder = &quot;personality_disorder_present&quot;)
+```
+
+```{r load-data}
+#&#x27; One trait in long form under standard facet names.
+# The CSV is read once and cached: build_trait() is called once per trait, so a
+# plain read.csv() here re-parses the same 21,600-row file four or six times.
+.trait_cache &lt;- new.env(parent = emptyenv())
+read_once &lt;- function(path) {
+  key &lt;- normalizePath(path, mustWork = TRUE)
+  if (is.null(.trait_cache[[key]])) .trait_cache[[key]] &lt;- read.csv(key, stringsAsFactors = FALSE)
+  .trait_cache[[key]]
+}
+
+build_trait &lt;- function(data_dir, col) {
+  d &lt;- read_once(file.path(data_dir, &quot;mh_labeling_final.csv&quot;))
+  x &lt;- tolower(trimws(as.character(d[[col]])))
+  v &lt;- ifelse(x %in% c(&quot;true&quot;, &quot;1&quot;), 1,
+       ifelse(x %in% c(&quot;false&quot;, &quot;0&quot;), 0, NA_real_))
+  if (any(is.na(v))) stop(&quot;unmapped values in &quot;, col)
+  data.frame(score = v, item = factor(d$item_id),
+             evaluator = factor(d$evaluator), prompt = factor(d$prompt_type),
+             temp = factor(d$temperature), seed = factor(d$seed),
+             stringsAsFactors = FALSE)
+}
+
+TD &lt;- lapply(TRAITS, function(col) build_trait(DATA_DIR, col))
+```
+
+```{r validate-array}
+#&#x27; Reshape a complete balanced long frame into a five-way array, facets on axes
+#&#x27; in FACETS order (item first).  Errors rather than silently filling.
+to_array &lt;- function(df, score_col = &quot;score&quot;) {
+  levs &lt;- lapply(FACETS, function(f) sort(unique(df[[f]])))
+  names(levs) &lt;- FACETS
+  dims &lt;- vapply(levs, length, integer(1))
+  idx  &lt;- vapply(FACETS, function(f) match(df[[f]], levs[[f]]),
+                 integer(nrow(df)))
+  lin  &lt;- idx[, 1]
+  mult &lt;- 1
+  for (j in seq_along(FACETS)[-1]) {
+    mult &lt;- mult * dims[j - 1]
+    lin  &lt;- lin + (idx[, j] - 1) * mult
+  }
+  if (anyDuplicated(lin))        stop(&quot;duplicate factor combinations&quot;)
+  if (length(lin) != prod(dims)) stop(&quot;design is not complete/balanced&quot;)
+  arr &lt;- array(NA_real_, dim = unname(dims))
+  arr[lin] &lt;- df[[score_col]]
+  if (anyNA(arr))                stop(&quot;design is not complete/balanced&quot;)
+  arr
+}
+
+ARR &lt;- lapply(TD, to_array)
+for (tn in names(ARR)) {
+  stopifnot(identical(dim(ARR[[tn]]), unname(as.integer(DSIZE))))
+}
+cat(&quot;all six traits on the declared design:&quot;,
+    paste(dim(ARR[[1]]), collapse = &quot; x &quot;), &quot;\n&quot;)
+```
+
+```{r descriptive-cross-trait}
+# Item-mean correlations are calculated directly from the annotations here.
+# The historical source used proportional-shrinkage BLUP correlations and
+# asserted their equality to these item-mean correlations to tolerance 1e-8.
+# The trait frames come from one CSV in one row order; the split below indexes
+# every trait with a mask built on the first, so that must hold.
+ALIGN_FACETS &lt;- c(&quot;item&quot;, &quot;evaluator&quot;, &quot;prompt&quot;, &quot;temp&quot;, &quot;seed&quot;)
+stopifnot(all(vapply(TD, function(x)
+  identical(x[ALIGN_FACETS], TD[[1]][ALIGN_FACETS]), logical(1))))
+TRAIT_PAIRS &lt;- combn(names(TRAITS), 2, simplify = FALSE)
+
+resid_ic &lt;- sapply(names(TRAITS), function(tn) {
+  x &lt;- TD[[tn]]; x$score - ave(x$score, x$item, FUN = mean)
+})
+R_err   &lt;- cor(resid_ic)
+
+evs &lt;- sort(unique(as.character(TD[[1]]$evaluator)))
+stopifnot(length(evs) == 4L)
+item_mean &lt;- function(keep) sapply(names(TRAITS), function(tn) {
+  x &lt;- TD[[tn]]; tapply(x$score[keep], x$item[keep], mean)
+})
+all_m  &lt;- item_mean(rep(TRUE, nrow(TD[[1]])))
+# The three distinct 2-vs-2 splits (the other three combinations are their complements).
+splits &lt;- combn(evs, 2, simplify = FALSE)[1:3]
+halves &lt;- lapply(splits, function(A) {
+  inA &lt;- TD[[1]]$evaluator %in% A
+  list(A = item_mean(inA), B = item_mean(!inA))
+})
+mv_samecall_vs_splitcall &lt;- do.call(rbind, lapply(TRAIT_PAIRS, function(pr) {
+  a &lt;- pr[1]; b &lt;- pr[2]
+  cross  &lt;- unlist(lapply(halves, function(h) c(cor(h$A[, a], h$B[, b]), cor(h$B[, a], h$A[, b]))))
+  within &lt;- unlist(lapply(halves, function(h) c(cor(h$A[, a], h$A[, b]), cor(h$B[, a], h$B[, b]))))
+  data.frame(dataset = DATASET, trait_1 = a, trait_2 = b,
+             r_same_call_all  = cor(all_m[, a], all_m[, b]),
+             r_same_call_half = mean(within),
+             r_split_call     = mean(cross),
+             r_split_call_sd  = sd(cross),
+             shared_method_inflation = mean(within) - mean(cross), row.names = NULL)
+}))
+
+
+mv_cross_trait_error_corr &lt;- do.call(rbind, lapply(TRAIT_PAIRS, function(pr) {
+  data.frame(dataset = DATASET, trait_1 = pr[1], trait_2 = pr[2],
+             cross_trait_error_r = R_err[pr[1], pr[2]],
+             r_item_mean = cor(all_m[, pr[1]], all_m[, pr[2]]), row.names = NULL)
+}))
+knitr::kable(mv_cross_trait_error_corr, digits = 4, row.names = FALSE)
+knitr::kable(mv_samecall_vs_splitcall, digits = 4, row.names = FALSE)
+```
+
+```{r binary-scale-checks}
+#&#x27; Fréchet bounds on the phi correlation of two binaries with marginals p, q.
+phi_bounds &lt;- function(p, q) {
+  if (min(p, q) &lt;= 0 || max(p, q) &gt;= 1) return(c(lo = NA_real_, hi = NA_real_))
+  den &lt;- sqrt(p * (1 - p) * q * (1 - q))
+  c(lo = (max(0, p + q - 1) - p * q) / den, hi = (min(p, q) - p * q) / den)
+}
+#&#x27; Maximum-likelihood tetrachoric correlation of two binary vectors.
+tetrachoric &lt;- function(x, y) {
+  n11 &lt;- sum(x == 1 &amp; y == 1); n10 &lt;- sum(x == 1 &amp; y == 0)
+  n01 &lt;- sum(x == 0 &amp; y == 1); n00 &lt;- sum(x == 0 &amp; y == 0)
+  n &lt;- n11 + n10 + n01 + n00
+  px &lt;- (n11 + n10) / n; py &lt;- (n11 + n01) / n
+  if (min(px, py) &lt;= 0 || max(px, py) &gt;= 1) return(NA_real_)
+  hx &lt;- qnorm(px); hy &lt;- qnorm(py)
+  negll &lt;- function(r) {
+    r &lt;- max(min(r, 0.999), -0.999)
+    p11 &lt;- pbivnorm(hx, hy, rho = r)
+    p11 &lt;- max(min(p11, min(px, py) - 1e-12), 1e-12)
+    ps  &lt;- pmax(c(p11, px - p11, py - p11, 1 - px - py + p11), 1e-12)
+    -(n11 * log(ps[1]) + n10 * log(ps[2]) + n01 * log(ps[3]) + n00 * log(ps[4]))
+  }
+  optimize(negll, interval = c(-0.99, 0.99))$minimum
+}
+
+prop   &lt;- as.data.frame(sapply(names(TRAITS), function(tn) tapply(TD[[tn]]$score, TD[[tn]]$item, mean)))
+n_obs  &lt;- nrow(TD[[1]]) / nlevels(TD[[1]]$item)
+tie_count &lt;- vapply(prop, function(v) sum(v == 0.5), integer(1))
+binmaj &lt;- as.data.frame(lapply(prop, function(v) as.integer(v &gt;= 0.5)))
+probit &lt;- as.data.frame(lapply(prop, function(v) qnorm(pmin(pmax(v, 0.5 / n_obs), 1 - 0.5 / n_obs))))
+cat(&quot;Exact 50/50 ties assigned present:&quot;,
+    paste(names(tie_count), tie_count, sep = &quot;=&quot;, collapse = &quot;, &quot;), &quot;\n&quot;)
+
+mv_tetrachoric &lt;- do.call(rbind, lapply(TRAIT_PAIRS, function(pr) {
+  a &lt;- pr[1]; b &lt;- pr[2]
+  pa &lt;- mean(binmaj[[a]]); pb &lt;- mean(binmaj[[b]]); bnd &lt;- phi_bounds(pa, pb)
+  n_pos &lt;- min(sum(binmaj[[a]]), sum(binmaj[[b]]))
+  phi &lt;- if (length(unique(binmaj[[a]])) &gt; 1 &amp;&amp; length(unique(binmaj[[b]])) &gt; 1)
+    cor(binmaj[[a]], binmaj[[b]]) else NA_real_
+  data.frame(dataset = DATASET, trait_1 = a, trait_2 = b,
+             base_rate_1 = pa, base_rate_2 = pb, min_positive_items = n_pos,
+             pearson_phi = phi, phi_min = bnd[[&quot;lo&quot;]], phi_max = bnd[[&quot;hi&quot;]],
+             position_in_range = (phi - bnd[[&quot;lo&quot;]]) / (bnd[[&quot;hi&quot;]] - bnd[[&quot;lo&quot;]]),
+             at_lower_bound = isTRUE(abs(phi - bnd[[&quot;lo&quot;]]) &lt; 0.005),
+             n_cooccur = sum(binmaj[[a]] == 1 &amp; binmaj[[b]] == 1),
+             tetrachoric = tetrachoric(binmaj[[a]], binmaj[[b]]),
+             probit_scale_r = cor(probit[[a]], probit[[b]]),
+             tetrachoric_unstable = n_pos &lt; 10, row.names = NULL)
+}))
+knitr::kable(mv_tetrachoric, digits = 4, row.names = FALSE,
+             caption = &quot;Discretization ceiling: observed phi against its attainable range, with tetrachoric and probit-scale alternatives.&quot;)
+```
+</code></pre></details><p class="meta">Focused source SHA-256: <code>1f4b0dc8760f6f14de57360305bdab16832bd9c985bb389b6b01acf1438650d2</code></p></section><section id="provenance"><h2>Provenance and exact saved values</h2><p>Historical report source: <code>mv_mental_health.Rmd</code>; retained before the supplementary point-only replacement on 10 September 2026. Source checksums identify the private retained originals; the public source above is the focused adaptation.</p><ul><li><code>mv_mental_health.Rmd</code><br><code>3737206b07b9502219a217eb4836eaf490008158ec3a9405e2ec38bbc953638d</code></li><li><code>mv_mental_health.html</code><br><code>f1b14fa0c48b1e56b7d37fb886221ff2dc98b44e4f8a548b8105169574e70d7d</code></li><li><code>mv_cross_trait_error_corr_mental_health_6flag.csv</code><br><code>31b1eb221fcf290978b78ebd0441efd8bea3c98d9253a66d3d417cddc78b07b2</code></li><li><code>mv_samecall_vs_splitcall_mental_health_6flag.csv</code><br><code>6729b1c0e802148b871d64b956eb1cd756c72b2f89bc0cf56ed8e708f7c8822b</code></li><li><code>mv_tetrachoric_mental_health_6flag.csv</code><br><code>ea26c48bf870df0e76cc3115f11ea94075185f9390f6b9b9c216f93cdd2fa372</code></li></ul><p>Annotation input MD5: <code>93824779124843e34c426c8988dd629e</code>. Every saved CSV value was checked against the corresponding historical HTML table to its displayed precision. The focused tables match the corresponding manuscript supplementary tables to their reported precision. The complete embedded source was also executed in isolation: all retained numeric values matched the saved CSVs within 4.4 × 10⁻¹⁴ (acceptance tolerance 10⁻⁸ for the direct item-mean comparison and 10⁻¹⁰ otherwise). No G-theory model or bootstrap was run.</p><details><summary>Full-precision retained values: mv_cross_trait_error_corr_mental_health_6flag.csv</summary><pre><code>dataset,trait_1,trait_2,cross_trait_error_r,r_item_mean
+mental_health_6flag,depression,anxiety,0.164792512562528,0.21049381176823
+mental_health_6flag,depression,suicidal,0.284107708539134,0.568872561288074
+mental_health_6flag,depression,stress,0.14029803475825,0.361658328164547
+mental_health_6flag,depression,bipolar,0.0474835463344308,0.131702514693848
+mental_health_6flag,depression,personality_disorder,0.0320163614197939,-0.0172306571184587
+mental_health_6flag,anxiety,suicidal,0.0383592200773715,-0.0139575590404791
+mental_health_6flag,anxiety,stress,0.218035474390238,0.535272730870457
+mental_health_6flag,anxiety,bipolar,-0.00562896754435486,0.018397777013025
+mental_health_6flag,anxiety,personality_disorder,0.0522471642038435,0.27615429512479
+mental_health_6flag,suicidal,stress,0.0650470624852481,0.124226047790389
+mental_health_6flag,suicidal,bipolar,0.0515316680893902,-0.111064536333178
+mental_health_6flag,suicidal,personality_disorder,0.00637573623089976,-0.0364851545109504
+mental_health_6flag,stress,bipolar,0.0472680027221418,0.28957745267411
+mental_health_6flag,stress,personality_disorder,0.103821385968008,0.143575316852995
+mental_health_6flag,bipolar,personality_disorder,0.0385237501706892,-0.0428428970774512
+</code></pre></details><details><summary>Full-precision retained values: mv_samecall_vs_splitcall_mental_health_6flag.csv</summary><pre><code>dataset,trait_1,trait_2,r_same_call_all,r_same_call_half,r_split_call,r_split_call_sd,shared_method_inflation
+mental_health_6flag,depression,anxiety,0.21049381176821,0.205556409884202,0.201652061732865,0.0318658876542682,0.00390434815133714
+mental_health_6flag,depression,suicidal,0.568872561288074,0.560811674140138,0.547915555077876,0.0366460075188083,0.0128961190622622
+mental_health_6flag,depression,stress,0.361658328164548,0.334237589734279,0.337319480632307,0.0361153557138705,-0.00308189089802813
+mental_health_6flag,depression,bipolar,0.131702514693838,0.129528110096993,0.129294926519794,0.0331489228528262,0.000233183577198787
+mental_health_6flag,depression,personality_disorder,-0.0172306571184497,-0.0249910964960599,-0.0200488913938901,0.0471165070446568,-0.00494220510216982
+mental_health_6flag,anxiety,suicidal,-0.013957559040492,-0.0143275398965957,-0.0105321323012847,0.0537946808054504,-0.00379540759531106
+mental_health_6flag,anxiety,stress,0.535272730870444,0.500627910174497,0.485548259573584,0.051712645079537,0.0150796506009124
+mental_health_6flag,anxiety,bipolar,0.0183977770130086,0.0161046844248696,0.0187901183385546,0.0579666765283626,-0.00268543391368498
+mental_health_6flag,anxiety,personality_disorder,0.276154295124785,0.248106455573427,0.258645039975173,0.0469359726739539,-0.0105385844017454
+mental_health_6flag,suicidal,stress,0.124226047790391,0.116287648260341,0.110714428705289,0.0641074657659512,0.0055732195550513
+mental_health_6flag,suicidal,bipolar,-0.111064536333178,-0.108935032140992,-0.110558485409402,0.0178433367966389,0.00162345326841003
+mental_health_6flag,suicidal,personality_disorder,-0.0364851545109475,-0.0437445411525237,-0.0389121580975777,0.0671931137282667,-0.00483238305494598
+mental_health_6flag,stress,bipolar,0.289577452674108,0.271863841813328,0.27269092582327,0.0459869261728427,-0.000827084009942358
+mental_health_6flag,stress,personality_disorder,0.143575316853005,0.137482112062823,0.119315774497171,0.0630987489472606,0.0181663375656523
+mental_health_6flag,bipolar,personality_disorder,-0.0428428970774509,-0.0411331381765781,-0.0408071005126511,0.0101519854150475,-0.000326037663927005
+</code></pre></details><details><summary>Full-precision retained values: mv_tetrachoric_mental_health_6flag.csv</summary><pre><code>dataset,trait_1,trait_2,base_rate_1,base_rate_2,min_positive_items,pearson_phi,phi_min,phi_max,position_in_range,at_lower_bound,n_cooccur,tetrachoric,probit_scale_r,tetrachoric_unstable
+mental_health_6flag,depression,anxiety,0.48,0.27,27,0.00180340964766983,-0.584304725845076,0.632996786332166,0.481481481481481,FALSE,13,0.00302438259074931,0.420288380376723,FALSE
+mental_health_6flag,depression,suicidal,0.48,0.22,22,0.504451672658952,-0.510249967746985,0.552770798392567,0.954545454545456,FALSE,21,0.841379118391566,0.620060968657373,FALSE
+mental_health_6flag,depression,stress,0.48,0.25,25,0.231125081760512,-0.554700196225229,0.600925212577332,0.68,FALSE,17,0.386750577279173,0.492738314561271,FALSE
+mental_health_6flag,depression,bipolar,0.48,0.05,5,0.146943671674129,-0.220415507511194,0.23878346647046,0.8,FALSE,4,0.402820176439516,0.182102838526278,TRUE
+mental_health_6flag,depression,personality_disorder,0.48,0.03,3,-0.168963815110846,-0.168963815110846,0.18304413303675,-7.09643580081664e-16,TRUE,0,-0.955389471405914,0.238999744236845,TRUE
+mental_health_6flag,anxiety,suicidal,0.27,0.22,22,-0.105487202732537,-0.322986589809932,0.873260039115743,0.181818181818182,FALSE,4,-0.208286636080089,0.145149748242483,FALSE
+mental_health_6flag,anxiety,stress,0.27,0.25,25,0.325114297767029,-0.351123441588392,0.949333749479726,0.52,FALSE,13,0.520571323676437,0.698587035307998,FALSE
+mental_health_6flag,anxiety,bipolar,0.27,0.05,5,-0.139522307912358,-0.139522307912359,0.377226980651933,6.98254435929008e-16,TRUE,0,-0.941612358803456,0.104354553443472,TRUE
+mental_health_6flag,anxiety,personality_disorder,0.27,0.03,3,0.157129292402703,-0.106953551971588,0.289170714589848,0.666666666666666,FALSE,2,0.443286301650137,0.404668925061697,TRUE
+mental_health_6flag,suicidal,stress,0.22,0.25,22,0.0278747336669032,-0.306622070335933,0.9198662110078,0.272727272727273,FALSE,6,0.0524178633723896,0.228973069885542,FALSE
+mental_health_6flag,suicidal,bipolar,0.22,0.05,5,-0.121839256065065,-0.121839256065065,0.431975544230686,-2.50585354533743e-17,TRUE,0,-0.949550128273415,-0.049715565101187,TRUE
+mental_health_6flag,suicidal,personality_disorder,0.22,0.03,3,-0.0933982629782764,-0.0933982629782762,0.331139296013888,-3.2689187361325e-16,TRUE,0,-0.942610669067209,0.104132298057057,TRUE
+mental_health_6flag,stress,bipolar,0.25,0.05,5,0.185434529989106,-0.132453235706504,0.397359707119513,0.599999999999999,FALSE,3,0.439650342927184,0.346778739829387,TRUE
+mental_health_6flag,stress,personality_disorder,0.25,0.03,3,0.0338448721711207,-0.101534616513362,0.304603849540086,0.333333333333334,FALSE,1,0.108466487857211,0.312985699289961,TRUE
+mental_health_6flag,bipolar,personality_disorder,0.05,0.03,3,-0.0403457654802415,-0.0403457654802416,0.76656954412459,1.11790691881866e-16,TRUE,0,-0.891678423834386,-0.0143625399344907,TRUE
+</code></pre></details></section><footer><a href="index.html">Other analyses</a> · Static publication; no external scripts, fonts or data assets are loaded.</footer></main></body></html>

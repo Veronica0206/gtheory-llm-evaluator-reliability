@@ -1,0 +1,148 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Drug Review: descriptive cross-trait diagnostics</title><style>body{margin:0;background:#f4f6f9;color:#1d3046;font:16px/1.6 system-ui,-apple-system,sans-serif}main{max-width:1200px;margin:auto;padding:28px 24px 64px}header{background:#15324b;color:white;padding:28px;border-radius:12px}header a{color:#b9ebef}h1{line-height:1.2}h2{margin-top:0}section{background:white;border:1px solid #d7e1e9;border-radius:10px;padding:24px;margin-top:22px}a{color:#006b75}a:focus-visible,summary:focus-visible{outline:3px solid #e5a22b;outline-offset:3px}.notice{border-left:5px solid #cc8a29}.table-scroll{overflow:auto}table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums;font-size:14px}caption{text-align:left;font-weight:650;padding:12px 0}th,td{text-align:left;border-bottom:1px solid #d7e1e9;padding:8px;white-space:nowrap}th{background:#eaf1f6}pre{overflow:auto;white-space:pre;background:#eef3f7;padding:16px;font:13px/1.5 ui-monospace,monospace}code{overflow-wrap:anywhere}details{margin-top:16px}summary{cursor:pointer;font-weight:650}.meta{font-size:13px;color:#526277}footer{margin-top:24px}</style></head><body><main>
+<header><nav><a href="index.html">Other analyses</a> · <a href="../index.html">Repository home</a></nav><h1>Drug Review: descriptive cross-trait diagnostics</h1><p>Retained item-centered and evaluator-half comparisons.</p></header>
+<section class="notice"><h2>Scope and saved-analysis status</h2><p>These are descriptive calculations on the original annotation arrays. Their saved values are preserved from the earlier reports. An isolated validation executed the focused source against the same annotation CSVs and reproduced the displayed diagnostics without replacing the saved outputs. They are separate from both the primary joint OpenMx G-study and the new supplementary stacked lme4 G-study. No attenuation-adjusted correlations, old composite estimates, or historical G-theory bootstrap results are presented here.</p><p>Within-item correlations subtract each trait’s item mean and therefore combine several instrumentation and residual sources. Same-half and split-half comparisons average all three balanced partitions of four evaluators and both trait assignments. They change evaluator composition and call pairing while retaining prompts; their difference is not an identified proportion of shared-method error.</p></section>
+<section id="cross-trait"><h2>Descriptive cross-trait associations</h2><div class="table-scroll"><table><caption>Saved descriptive correlations; manuscript Supplementary Table S11</caption><thead><tr><th scope="col">Trait 1</th><th scope="col">Trait 2</th><th scope="col">Within-item r</th><th scope="col">Full-panel item-mean r</th><th scope="col">Same-half r</th><th scope="col">Split-half r</th><th scope="col">Cross-half SD</th><th scope="col">Same-half minus split-half</th></tr></thead><tbody><tr><td>efficacy</td><td>safety</td><td>0.0186</td><td>0.6543</td><td>0.6422</td><td>0.6402</td><td>0.0245</td><td>0.0020</td></tr><tr><td>efficacy</td><td>burden</td><td>0.0941</td><td>0.7431</td><td>0.7187</td><td>0.7176</td><td>0.0403</td><td>0.0010</td></tr><tr><td>efficacy</td><td>cost</td><td>0.0489</td><td>0.1552</td><td>0.1529</td><td>0.1455</td><td>0.0636</td><td>0.0075</td></tr><tr><td>safety</td><td>burden</td><td>0.1322</td><td>0.8522</td><td>0.8249</td><td>0.8165</td><td>0.0269</td><td>0.0084</td></tr><tr><td>safety</td><td>cost</td><td>0.0718</td><td>0.2360</td><td>0.2266</td><td>0.2225</td><td>0.0602</td><td>0.0041</td></tr><tr><td>burden</td><td>cost</td><td>0.0414</td><td>0.2765</td><td>0.2645</td><td>0.2564</td><td>0.0452</td><td>0.0081</td></tr></tbody></table></div></section><section id="source"><h2>Complete focused reproduction source</h2><p><a download="cross_trait_diagnostics_drug_review.Rmd" href="data:text/plain;charset=utf-8;base64,LS0tCnRpdGxlOiAiRHJ1ZyBSZXZpZXc6IHJldGFpbmVkIGRlc2NyaXB0aXZlIGNyb3NzLXRyYWl0IGRpYWdub3N0aWNzIgpvdXRwdXQ6CiAgaHRtbF9kb2N1bWVudDoKICAgIHNlbGZfY29udGFpbmVkOiB0cnVlCiAgICBjb2RlX2Rvd25sb2FkOiB0cnVlCi0tLQoKVGhpcyBmb2N1c2VkIHNvdXJjZSByZXByb2R1Y2VzIGRlc2NyaXB0aXZlIGRpYWdub3N0aWNzIG9ubHkuIEl0IGNvbnRhaW5zIG5vIEctdGhlb3J5IGZpdHMsCmF0dGVudWF0aW9uIGFkanVzdG1lbnQsIG1vZGVsIHNlbGVjdGlvbiwgYm9vdHN0cmFwLCBvciBjb21wb3NpdGUgY292YXJpYW5jZSBzY2VuYXJpb3MuClNhdmUgdGhpcyBSbWQgdW5kZXIgb3RoZXJfYW5hbHlzaXMvIGFuZCBwbGFjZSB0aGUgT1NGIGFubm90YXRpb24gQ1NWIGluIC4uL2RhdGEvLgpUaGUgZGlzcGxheWVkIHJlc3VsdHMgYXJlIHJldGFpbmVkIGhpc3RvcmljYWwgb3V0cHV0czsgc2VwYXJhdGUgcmVwcm9kdWN0aW9uIGNoZWNrcyBkbyBub3QgcmVwbGFjZSB0aG9zZSBzYXZlZCB2YWx1ZXMuCgpgYGB7ciBzZXR1cH0KREFUQV9ESVIgPC0gIi4uL2RhdGEiCkRBVEFTRVQgPC0gImRydWdfcmV2aWV3XzRhc3BlY3QiCkZBQ0VUUyA8LSBjKCJpdGVtIiwgImV2YWx1YXRvciIsICJwcm9tcHQiLCAidGVtcCIsICJzZWVkIikKRFNJWkUgPC0gYyhpdGVtID0gMTAwLCBldmFsdWF0b3IgPSA0LCBwcm9tcHQgPSAzLCB0ZW1wID0gNiwgc2VlZCA9IDMpCnN0b3BpZm5vdChyZXF1aXJlTmFtZXNwYWNlKCJrbml0ciIsIHF1aWV0bHkgPSBUUlVFKSkKCnN0b3BpZm5vdChpZGVudGljYWwodW5uYW1lKHRvb2xzOjptZDVzdW0oZmlsZS5wYXRoKERBVEFfRElSLCAiZHJ1Z19sYWJlbGluZ19maW5hbC5jc3YiKSkpLCAiYjVjYTk0ODBmZWIyODRjNWE3MTk3MWNkNGIzM2E2YTkiKSkKVFJBSVRTICAgICA8LSBjKGVmZmljYWN5ID0gImFpX2VmZmljYWN5Iiwgc2FmZXR5ID0gImFpX3NhZmV0eSIsCiAgICAgICAgICAgICAgICBidXJkZW4gICA9ICJhaV9idXJkZW4iLCAgIGNvc3QgICA9ICJhaV9jb3N0IikKQVNQRUNUX01BUCA8LSBjKE5FR0FUSVZFID0gMSwgTkVVVFJBTCA9IDIsIFBPU0lUSVZFID0gMykKYGBgCgpgYGB7ciBsb2FkLWRhdGF9CiMnIE9uZSB0cmFpdCBpbiBsb25nIGZvcm0gdW5kZXIgc3RhbmRhcmQgZmFjZXQgbmFtZXMuCiMgVGhlIENTViBpcyByZWFkIG9uY2UgYW5kIGNhY2hlZDogYnVpbGRfdHJhaXQoKSBpcyBjYWxsZWQgb25jZSBwZXIgdHJhaXQsIHNvIGEKIyBwbGFpbiByZWFkLmNzdigpIGhlcmUgcmUtcGFyc2VzIHRoZSBzYW1lIDIxLDYwMC1yb3cgZmlsZSBmb3VyIG9yIHNpeCB0aW1lcy4KLnRyYWl0X2NhY2hlIDwtIG5ldy5lbnYocGFyZW50ID0gZW1wdHllbnYoKSkKcmVhZF9vbmNlIDwtIGZ1bmN0aW9uKHBhdGgpIHsKICBrZXkgPC0gbm9ybWFsaXplUGF0aChwYXRoLCBtdXN0V29yayA9IFRSVUUpCiAgaWYgKGlzLm51bGwoLnRyYWl0X2NhY2hlW1trZXldXSkpIC50cmFpdF9jYWNoZVtba2V5XV0gPC0gcmVhZC5jc3Yoa2V5LCBzdHJpbmdzQXNGYWN0b3JzID0gRkFMU0UpCiAgLnRyYWl0X2NhY2hlW1trZXldXQp9CgpidWlsZF90cmFpdCA8LSBmdW5jdGlvbihkYXRhX2RpciwgY29sKSB7CiAgZCA8LSByZWFkX29uY2UoZmlsZS5wYXRoKGRhdGFfZGlyLCAiZHJ1Z19sYWJlbGluZ19maW5hbC5jc3YiKSkKICB2IDwtIGFzLm51bWVyaWMoQVNQRUNUX01BUFt0b3VwcGVyKHRyaW13cyhkW1tjb2xdXSkpXSkKICBpZiAoYW55KGlzLm5hKHYpKSkgc3RvcCgidW5tYXBwZWQgdmFsdWVzIGluICIsIGNvbCkKICBkYXRhLmZyYW1lKHNjb3JlID0gdiwgaXRlbSA9IGZhY3RvcihkJGl0ZW1faWQpLAogICAgICAgICAgICAgZXZhbHVhdG9yID0gZmFjdG9yKGQkZXZhbHVhdG9yKSwgcHJvbXB0ID0gZmFjdG9yKGQkcHJvbXB0X3R5cGUpLAogICAgICAgICAgICAgdGVtcCA9IGZhY3RvcihkJHRlbXBlcmF0dXJlKSwgc2VlZCA9IGZhY3RvcihkJHNlZWQpLAogICAgICAgICAgICAgc3RyaW5nc0FzRmFjdG9ycyA9IEZBTFNFKQp9CgpURCA8LSBsYXBwbHkoVFJBSVRTLCBmdW5jdGlvbihjb2wpIGJ1aWxkX3RyYWl0KERBVEFfRElSLCBjb2wpKQpgYGAKCmBgYHtyIHZhbGlkYXRlLWFycmF5fQojJyBSZXNoYXBlIGEgY29tcGxldGUgYmFsYW5jZWQgbG9uZyBmcmFtZSBpbnRvIGEgZml2ZS13YXkgYXJyYXksIGZhY2V0cyBvbiBheGVzCiMnIGluIEZBQ0VUUyBvcmRlciAoaXRlbSBmaXJzdCkuICBFcnJvcnMgcmF0aGVyIHRoYW4gc2lsZW50bHkgZmlsbGluZy4KdG9fYXJyYXkgPC0gZnVuY3Rpb24oZGYsIHNjb3JlX2NvbCA9ICJzY29yZSIpIHsKICBsZXZzIDwtIGxhcHBseShGQUNFVFMsIGZ1bmN0aW9uKGYpIHNvcnQodW5pcXVlKGRmW1tmXV0pKSkKICBuYW1lcyhsZXZzKSA8LSBGQUNFVFMKICBkaW1zIDwtIHZhcHBseShsZXZzLCBsZW5ndGgsIGludGVnZXIoMSkpCiAgaWR4ICA8LSB2YXBwbHkoRkFDRVRTLCBmdW5jdGlvbihmKSBtYXRjaChkZltbZl1dLCBsZXZzW1tmXV0pLAogICAgICAgICAgICAgICAgIGludGVnZXIobnJvdyhkZikpKQogIGxpbiAgPC0gaWR4WywgMV0KICBtdWx0IDwtIDEKICBmb3IgKGogaW4gc2VxX2Fsb25nKEZBQ0VUUylbLTFdKSB7CiAgICBtdWx0IDwtIG11bHQgKiBkaW1zW2ogLSAxXQogICAgbGluICA8LSBsaW4gKyAoaWR4Wywgal0gLSAxKSAqIG11bHQKICB9CiAgaWYgKGFueUR1cGxpY2F0ZWQobGluKSkgICAgICAgIHN0b3AoImR1cGxpY2F0ZSBmYWN0b3IgY29tYmluYXRpb25zIikKICBpZiAobGVuZ3RoKGxpbikgIT0gcHJvZChkaW1zKSkgc3RvcCgiZGVzaWduIGlzIG5vdCBjb21wbGV0ZS9iYWxhbmNlZCIpCiAgYXJyIDwtIGFycmF5KE5BX3JlYWxfLCBkaW0gPSB1bm5hbWUoZGltcykpCiAgYXJyW2xpbl0gPC0gZGZbW3Njb3JlX2NvbF1dCiAgaWYgKGFueU5BKGFycikpICAgICAgICAgICAgICAgIHN0b3AoImRlc2lnbiBpcyBub3QgY29tcGxldGUvYmFsYW5jZWQiKQogIGFycgp9CgpBUlIgPC0gbGFwcGx5KFRELCB0b19hcnJheSkKZm9yICh0biBpbiBuYW1lcyhBUlIpKSB7CiAgc3RvcGlmbm90KGlkZW50aWNhbChkaW0oQVJSW1t0bl1dKSwgdW5uYW1lKGFzLmludGVnZXIoRFNJWkUpKSkpCn0KY2F0KCJhbGwgZm91ciB0cmFpdHMgb24gdGhlIGRlY2xhcmVkIGRlc2lnbjoiLAogICAgcGFzdGUoZGltKEFSUltbMV1dKSwgY29sbGFwc2UgPSAiIHggIiksICJcbiIpCmBgYAoKYGBge3IgZGVzY3JpcHRpdmUtY3Jvc3MtdHJhaXR9CiMgSXRlbS1tZWFuIGNvcnJlbGF0aW9ucyBhcmUgY2FsY3VsYXRlZCBkaXJlY3RseSBmcm9tIHRoZSBhbm5vdGF0aW9ucyBoZXJlLgojIFRoZSBoaXN0b3JpY2FsIHNvdXJjZSB1c2VkIHByb3BvcnRpb25hbC1zaHJpbmthZ2UgQkxVUCBjb3JyZWxhdGlvbnMgYW5kCiMgYXNzZXJ0ZWQgdGhlaXIgZXF1YWxpdHkgdG8gdGhlc2UgaXRlbS1tZWFuIGNvcnJlbGF0aW9ucyB0byB0b2xlcmFuY2UgMWUtOC4KIyBUaGUgdHJhaXQgZnJhbWVzIGNvbWUgZnJvbSBvbmUgQ1NWIGluIG9uZSByb3cgb3JkZXI7IHRoZSBzcGxpdCBiZWxvdyBpbmRleGVzCiMgZXZlcnkgdHJhaXQgd2l0aCBhIG1hc2sgYnVpbHQgb24gdGhlIGZpcnN0LCBzbyB0aGF0IG11c3QgaG9sZC4KQUxJR05fRkFDRVRTIDwtIGMoIml0ZW0iLCAiZXZhbHVhdG9yIiwgInByb21wdCIsICJ0ZW1wIiwgInNlZWQiKQpzdG9waWZub3QoYWxsKHZhcHBseShURCwgZnVuY3Rpb24oeCkKICBpZGVudGljYWwoeFtBTElHTl9GQUNFVFNdLCBURFtbMV1dW0FMSUdOX0ZBQ0VUU10pLCBsb2dpY2FsKDEpKSkpClRSQUlUX1BBSVJTIDwtIGNvbWJuKG5hbWVzKFRSQUlUUyksIDIsIHNpbXBsaWZ5ID0gRkFMU0UpCgpyZXNpZF9pYyA8LSBzYXBwbHkobmFtZXMoVFJBSVRTKSwgZnVuY3Rpb24odG4pIHsKICB4IDwtIFREW1t0bl1dOyB4JHNjb3JlIC0gYXZlKHgkc2NvcmUsIHgkaXRlbSwgRlVOID0gbWVhbikKfSkKUl9lcnIgICA8LSBjb3IocmVzaWRfaWMpCgpldnMgPC0gc29ydCh1bmlxdWUoYXMuY2hhcmFjdGVyKFREW1sxXV0kZXZhbHVhdG9yKSkpCnN0b3BpZm5vdChsZW5ndGgoZXZzKSA9PSA0TCkKaXRlbV9tZWFuIDwtIGZ1bmN0aW9uKGtlZXApIHNhcHBseShuYW1lcyhUUkFJVFMpLCBmdW5jdGlvbih0bikgewogIHggPC0gVERbW3RuXV07IHRhcHBseSh4JHNjb3JlW2tlZXBdLCB4JGl0ZW1ba2VlcF0sIG1lYW4pCn0pCmFsbF9tICA8LSBpdGVtX21lYW4ocmVwKFRSVUUsIG5yb3coVERbWzFdXSkpKQojIFRoZSB0aHJlZSBkaXN0aW5jdCAyLXZzLTIgc3BsaXRzICh0aGUgb3RoZXIgdGhyZWUgY29tYmluYXRpb25zIGFyZSB0aGVpciBjb21wbGVtZW50cykuCnNwbGl0cyA8LSBjb21ibihldnMsIDIsIHNpbXBsaWZ5ID0gRkFMU0UpWzE6M10KaGFsdmVzIDwtIGxhcHBseShzcGxpdHMsIGZ1bmN0aW9uKEEpIHsKICBpbkEgPC0gVERbWzFdXSRldmFsdWF0b3IgJWluJSBBCiAgbGlzdChBID0gaXRlbV9tZWFuKGluQSksIEIgPSBpdGVtX21lYW4oIWluQSkpCn0pCm12X3NhbWVjYWxsX3ZzX3NwbGl0Y2FsbCA8LSBkby5jYWxsKHJiaW5kLCBsYXBwbHkoVFJBSVRfUEFJUlMsIGZ1bmN0aW9uKHByKSB7CiAgYSA8LSBwclsxXTsgYiA8LSBwclsyXQogIGNyb3NzICA8LSB1bmxpc3QobGFwcGx5KGhhbHZlcywgZnVuY3Rpb24oaCkgYyhjb3IoaCRBWywgYV0sIGgkQlssIGJdKSwgY29yKGgkQlssIGFdLCBoJEFbLCBiXSkpKSkKICB3aXRoaW4gPC0gdW5saXN0KGxhcHBseShoYWx2ZXMsIGZ1bmN0aW9uKGgpIGMoY29yKGgkQVssIGFdLCBoJEFbLCBiXSksIGNvcihoJEJbLCBhXSwgaCRCWywgYl0pKSkpCiAgZGF0YS5mcmFtZShkYXRhc2V0ID0gREFUQVNFVCwgdHJhaXRfMSA9IGEsIHRyYWl0XzIgPSBiLAogICAgICAgICAgICAgcl9zYW1lX2NhbGxfYWxsICA9IGNvcihhbGxfbVssIGFdLCBhbGxfbVssIGJdKSwKICAgICAgICAgICAgIHJfc2FtZV9jYWxsX2hhbGYgPSBtZWFuKHdpdGhpbiksCiAgICAgICAgICAgICByX3NwbGl0X2NhbGwgICAgID0gbWVhbihjcm9zcyksCiAgICAgICAgICAgICByX3NwbGl0X2NhbGxfc2QgID0gc2QoY3Jvc3MpLAogICAgICAgICAgICAgc2hhcmVkX21ldGhvZF9pbmZsYXRpb24gPSBtZWFuKHdpdGhpbikgLSBtZWFuKGNyb3NzKSwgcm93Lm5hbWVzID0gTlVMTCkKfSkpCgoKbXZfY3Jvc3NfdHJhaXRfZXJyb3JfY29yciA8LSBkby5jYWxsKHJiaW5kLCBsYXBwbHkoVFJBSVRfUEFJUlMsIGZ1bmN0aW9uKHByKSB7CiAgZGF0YS5mcmFtZShkYXRhc2V0ID0gREFUQVNFVCwgdHJhaXRfMSA9IHByWzFdLCB0cmFpdF8yID0gcHJbMl0sCiAgICAgICAgICAgICBjcm9zc190cmFpdF9lcnJvcl9yID0gUl9lcnJbcHJbMV0sIHByWzJdXSwKICAgICAgICAgICAgIHJfaXRlbV9tZWFuID0gY29yKGFsbF9tWywgcHJbMV1dLCBhbGxfbVssIHByWzJdXSksIHJvdy5uYW1lcyA9IE5VTEwpCn0pKQprbml0cjo6a2FibGUobXZfY3Jvc3NfdHJhaXRfZXJyb3JfY29yciwgZGlnaXRzID0gNCwgcm93Lm5hbWVzID0gRkFMU0UpCmtuaXRyOjprYWJsZShtdl9zYW1lY2FsbF92c19zcGxpdGNhbGwsIGRpZ2l0cyA9IDQsIHJvdy5uYW1lcyA9IEZBTFNFKQpgYGAK">Download the R Markdown source embedded in this HTML</a>. Save it in <code>other_analysis/</code>. Put <code>drug_labeling_final.csv</code> from <a href="https://osf.io/k9caj/">OSF</a> in <code>../data/</code>, then render the downloaded source with R Markdown. Required packages are <code>rmarkdown</code>, <code>knitr</code>. No lme4 or OpenMx model fit is called.</p><p>The focused source retains the historical preprocessing, item-centering, and evaluator-half calculations. Publication edits remove unrelated model-fitting dependencies and historical attenuation calculations, calculate item-mean correlations directly, add the input checksum check, and use a repository-relative data path. The old source asserted equality of its proportional-shrinkage BLUP correlations and item-mean correlations to tolerance 10⁻⁸. That equality was also checked against the saved result columns during packaging.</p><details><summary>View all focused R Markdown code</summary><pre><code>---
+title: &quot;Drug Review: retained descriptive cross-trait diagnostics&quot;
+output:
+  html_document:
+    self_contained: true
+    code_download: true
+---
+
+This focused source reproduces descriptive diagnostics only. It contains no G-theory fits,
+attenuation adjustment, model selection, bootstrap, or composite covariance scenarios.
+Save this Rmd under other_analysis/ and place the OSF annotation CSV in ../data/.
+The displayed results are retained historical outputs; separate reproduction checks do not replace those saved values.
+
+```{r setup}
+DATA_DIR &lt;- &quot;../data&quot;
+DATASET &lt;- &quot;drug_review_4aspect&quot;
+FACETS &lt;- c(&quot;item&quot;, &quot;evaluator&quot;, &quot;prompt&quot;, &quot;temp&quot;, &quot;seed&quot;)
+DSIZE &lt;- c(item = 100, evaluator = 4, prompt = 3, temp = 6, seed = 3)
+stopifnot(requireNamespace(&quot;knitr&quot;, quietly = TRUE))
+
+stopifnot(identical(unname(tools::md5sum(file.path(DATA_DIR, &quot;drug_labeling_final.csv&quot;))), &quot;b5ca9480feb284c5a71971cd4b33a6a9&quot;))
+TRAITS     &lt;- c(efficacy = &quot;ai_efficacy&quot;, safety = &quot;ai_safety&quot;,
+                burden   = &quot;ai_burden&quot;,   cost   = &quot;ai_cost&quot;)
+ASPECT_MAP &lt;- c(NEGATIVE = 1, NEUTRAL = 2, POSITIVE = 3)
+```
+
+```{r load-data}
+#&#x27; One trait in long form under standard facet names.
+# The CSV is read once and cached: build_trait() is called once per trait, so a
+# plain read.csv() here re-parses the same 21,600-row file four or six times.
+.trait_cache &lt;- new.env(parent = emptyenv())
+read_once &lt;- function(path) {
+  key &lt;- normalizePath(path, mustWork = TRUE)
+  if (is.null(.trait_cache[[key]])) .trait_cache[[key]] &lt;- read.csv(key, stringsAsFactors = FALSE)
+  .trait_cache[[key]]
+}
+
+build_trait &lt;- function(data_dir, col) {
+  d &lt;- read_once(file.path(data_dir, &quot;drug_labeling_final.csv&quot;))
+  v &lt;- as.numeric(ASPECT_MAP[toupper(trimws(d[[col]]))])
+  if (any(is.na(v))) stop(&quot;unmapped values in &quot;, col)
+  data.frame(score = v, item = factor(d$item_id),
+             evaluator = factor(d$evaluator), prompt = factor(d$prompt_type),
+             temp = factor(d$temperature), seed = factor(d$seed),
+             stringsAsFactors = FALSE)
+}
+
+TD &lt;- lapply(TRAITS, function(col) build_trait(DATA_DIR, col))
+```
+
+```{r validate-array}
+#&#x27; Reshape a complete balanced long frame into a five-way array, facets on axes
+#&#x27; in FACETS order (item first).  Errors rather than silently filling.
+to_array &lt;- function(df, score_col = &quot;score&quot;) {
+  levs &lt;- lapply(FACETS, function(f) sort(unique(df[[f]])))
+  names(levs) &lt;- FACETS
+  dims &lt;- vapply(levs, length, integer(1))
+  idx  &lt;- vapply(FACETS, function(f) match(df[[f]], levs[[f]]),
+                 integer(nrow(df)))
+  lin  &lt;- idx[, 1]
+  mult &lt;- 1
+  for (j in seq_along(FACETS)[-1]) {
+    mult &lt;- mult * dims[j - 1]
+    lin  &lt;- lin + (idx[, j] - 1) * mult
+  }
+  if (anyDuplicated(lin))        stop(&quot;duplicate factor combinations&quot;)
+  if (length(lin) != prod(dims)) stop(&quot;design is not complete/balanced&quot;)
+  arr &lt;- array(NA_real_, dim = unname(dims))
+  arr[lin] &lt;- df[[score_col]]
+  if (anyNA(arr))                stop(&quot;design is not complete/balanced&quot;)
+  arr
+}
+
+ARR &lt;- lapply(TD, to_array)
+for (tn in names(ARR)) {
+  stopifnot(identical(dim(ARR[[tn]]), unname(as.integer(DSIZE))))
+}
+cat(&quot;all four traits on the declared design:&quot;,
+    paste(dim(ARR[[1]]), collapse = &quot; x &quot;), &quot;\n&quot;)
+```
+
+```{r descriptive-cross-trait}
+# Item-mean correlations are calculated directly from the annotations here.
+# The historical source used proportional-shrinkage BLUP correlations and
+# asserted their equality to these item-mean correlations to tolerance 1e-8.
+# The trait frames come from one CSV in one row order; the split below indexes
+# every trait with a mask built on the first, so that must hold.
+ALIGN_FACETS &lt;- c(&quot;item&quot;, &quot;evaluator&quot;, &quot;prompt&quot;, &quot;temp&quot;, &quot;seed&quot;)
+stopifnot(all(vapply(TD, function(x)
+  identical(x[ALIGN_FACETS], TD[[1]][ALIGN_FACETS]), logical(1))))
+TRAIT_PAIRS &lt;- combn(names(TRAITS), 2, simplify = FALSE)
+
+resid_ic &lt;- sapply(names(TRAITS), function(tn) {
+  x &lt;- TD[[tn]]; x$score - ave(x$score, x$item, FUN = mean)
+})
+R_err   &lt;- cor(resid_ic)
+
+evs &lt;- sort(unique(as.character(TD[[1]]$evaluator)))
+stopifnot(length(evs) == 4L)
+item_mean &lt;- function(keep) sapply(names(TRAITS), function(tn) {
+  x &lt;- TD[[tn]]; tapply(x$score[keep], x$item[keep], mean)
+})
+all_m  &lt;- item_mean(rep(TRUE, nrow(TD[[1]])))
+# The three distinct 2-vs-2 splits (the other three combinations are their complements).
+splits &lt;- combn(evs, 2, simplify = FALSE)[1:3]
+halves &lt;- lapply(splits, function(A) {
+  inA &lt;- TD[[1]]$evaluator %in% A
+  list(A = item_mean(inA), B = item_mean(!inA))
+})
+mv_samecall_vs_splitcall &lt;- do.call(rbind, lapply(TRAIT_PAIRS, function(pr) {
+  a &lt;- pr[1]; b &lt;- pr[2]
+  cross  &lt;- unlist(lapply(halves, function(h) c(cor(h$A[, a], h$B[, b]), cor(h$B[, a], h$A[, b]))))
+  within &lt;- unlist(lapply(halves, function(h) c(cor(h$A[, a], h$A[, b]), cor(h$B[, a], h$B[, b]))))
+  data.frame(dataset = DATASET, trait_1 = a, trait_2 = b,
+             r_same_call_all  = cor(all_m[, a], all_m[, b]),
+             r_same_call_half = mean(within),
+             r_split_call     = mean(cross),
+             r_split_call_sd  = sd(cross),
+             shared_method_inflation = mean(within) - mean(cross), row.names = NULL)
+}))
+
+
+mv_cross_trait_error_corr &lt;- do.call(rbind, lapply(TRAIT_PAIRS, function(pr) {
+  data.frame(dataset = DATASET, trait_1 = pr[1], trait_2 = pr[2],
+             cross_trait_error_r = R_err[pr[1], pr[2]],
+             r_item_mean = cor(all_m[, pr[1]], all_m[, pr[2]]), row.names = NULL)
+}))
+knitr::kable(mv_cross_trait_error_corr, digits = 4, row.names = FALSE)
+knitr::kable(mv_samecall_vs_splitcall, digits = 4, row.names = FALSE)
+```
+</code></pre></details><p class="meta">Focused source SHA-256: <code>2199b420704adfdb59021a64cffaf04dde7421229ebf8bfcd780fbf88815f69b</code></p></section><section id="provenance"><h2>Provenance and exact saved values</h2><p>Historical report source: <code>mv_drug_review.Rmd</code>; retained before the supplementary point-only replacement on 10 September 2026. Source checksums identify the private retained originals; the public source above is the focused adaptation.</p><ul><li><code>mv_drug_review.Rmd</code><br><code>4dce01b3e9520900104ab8531f271b1b0f2064b5c206e0f19ef6ea223f566a15</code></li><li><code>mv_drug_review.html</code><br><code>65539d61241b70e236d91d24882743034f0c4a602386c720a50908475179fa14</code></li><li><code>mv_cross_trait_error_corr_drug_review_4aspect.csv</code><br><code>3cc8c44397af16e93b8b3a4e00ca0aa5130ea2235026d06fe61839cf672eaff1</code></li><li><code>mv_samecall_vs_splitcall_drug_review_4aspect.csv</code><br><code>dead1895ab30bb7723cd609287c422f87a7bc1dc3e3ae98ca62a280f760edd6c</code></li></ul><p>Annotation input MD5: <code>b5ca9480feb284c5a71971cd4b33a6a9</code>. Every saved CSV value was checked against the corresponding historical HTML table to its displayed precision. The focused tables match the corresponding manuscript supplementary tables to their reported precision. The complete embedded source was also executed in isolation: all retained numeric values matched the saved CSVs within 4.4 × 10⁻¹⁴ (acceptance tolerance 10⁻⁸ for the direct item-mean comparison and 10⁻¹⁰ otherwise). No G-theory model or bootstrap was run.</p><details><summary>Full-precision retained values: mv_cross_trait_error_corr_drug_review_4aspect.csv</summary><pre><code>dataset,trait_1,trait_2,cross_trait_error_r,r_item_mean
+drug_review_4aspect,efficacy,safety,0.0186207361761125,0.654330207319456
+drug_review_4aspect,efficacy,burden,0.0940780042443175,0.743098603286706
+drug_review_4aspect,efficacy,cost,0.0489452916287445,0.155180222866048
+drug_review_4aspect,safety,burden,0.132174287154091,0.852195236915269
+drug_review_4aspect,safety,cost,0.0717534220328518,0.236014334425175
+drug_review_4aspect,burden,cost,0.0414004132577434,0.276507098520682
+</code></pre></details><details><summary>Full-precision retained values: mv_samecall_vs_splitcall_drug_review_4aspect.csv</summary><pre><code>dataset,trait_1,trait_2,r_same_call_all,r_same_call_half,r_split_call,r_split_call_sd,shared_method_inflation
+drug_review_4aspect,efficacy,safety,0.65433020731949,0.642230390502112,0.640245142022934,0.0245203069255323,0.00198524847917736
+drug_review_4aspect,efficacy,burden,0.743098603286734,0.718656356729935,0.717633832144104,0.0403297945931441,0.00102252458583019
+drug_review_4aspect,efficacy,cost,0.155180222866036,0.152947197636533,0.145456558935356,0.0636070740389076,0.00749063870117678
+drug_review_4aspect,safety,burden,0.852195236915291,0.824874829714032,0.816521851652315,0.0268809275666352,0.00835297806171731
+drug_review_4aspect,safety,cost,0.236014334425171,0.226599254694728,0.222472803218792,0.0602043519558334,0.00412645147593657
+drug_review_4aspect,burden,cost,0.276507098520639,0.264476242173746,0.256384613654348,0.0452209420139752,0.00809162851939799
+</code></pre></details></section><footer><a href="index.html">Other analyses</a> · Static publication; no external scripts, fonts or data assets are loaded.</footer></main></body></html>
