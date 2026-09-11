@@ -27,7 +27,7 @@ The study examines annotation reliability across evaluators, prompts, temperatur
 | Mental-Health, multivariate | [HTML](primary_analysis/mv_mental_health.html) | [HTML](supportive_analysis/lme4/mv_mental_health.html) |
 | Drug-Review, multivariate | [HTML](primary_analysis/mv_drug_review.html) | [HTML](supportive_analysis/lme4/mv_drug_review.html) |
 
-The OpenMx reports are the revised primary results. All seven outcome sets reached **1,000 accepted bootstrap fits and 100 completed jackknife fits**. Attempt counts, unavailable estimates and sparse-tail diagnostics remain visible. The final report refresh reused the completed fits.
+The OpenMx reports are the revised primary results. All seven outcome sets reached **1,000 accepted bootstrap fits and 100 completed jackknife fits**. Attempt counts, unavailable estimates and sparse-tail diagnostics remain visible. The final report refresh reused the completed fits. The two multivariate reports now also provide the trait-specific variance percentages in manuscript Table 5, their calculation, and full-precision CSV downloads.
 
 The supplementary lme4 reports were rerun on 10 September 2026. They compare all **11 specifications** by ML and select the within-Family 2 BIC winner for REML point estimates; all seven outcome sets selected `f2_complete_drift`. They report components, reliability and D-study projections without bootstrap, jackknife or confidence intervals.
 
@@ -45,7 +45,7 @@ The manuscript’s retained facet-severity intervals and cross-trait diagnostics
 
 The annotation CSVs on OSF match the primary report fingerprints. Supportive and ancillary reruns also need three sampled-item CSVs, which are not in the current public deposit; their filenames and checksums are listed in the reproduction guide.
 
-Input data and optional fit caches are not duplicated here. This GitHub update does not update the OSF deposit. It publishes the completed lme4 rerun; packaging preserves those finished results without additional G-theory fitting, bootstrap resampling or annotation. Focused descriptive source checks verify retained outputs. Primary OpenMx report files remain unchanged.
+Input data and optional fit caches are not duplicated here. This GitHub update does not update the OSF deposit. The repository includes the completed lme4 rerun; packaging preserves those finished results without additional G-theory fitting, bootstrap resampling or annotation. Focused descriptive source checks verify retained outputs. The two multivariate OpenMx reports have received a reporting-only refresh; existing model estimates and bootstrap intervals are preserved.
 
 ## Earlier public version
 
