@@ -8,24 +8,24 @@ The study examines annotation reliability across evaluators, prompts, temperatur
 
 ## Start here
 
-**Download this repository and open [index.html](index.html) in a browser.** GitHub’s file view displays the HTML source. The reports contain the analysis code and saved outputs; no standalone Rmd, R, Python or notebook source files are distributed in this revision.
+**[Read the reports in your browser](https://veronica0206.github.io/gtheory-llm-evaluator-reliability/).** The links below open the rendered reports on GitHub Pages. You can also download this repository and open `index.html` locally. GitHub’s file view does not render HTML reports and may reject large files. The reports contain the analysis code and saved outputs; no standalone Rmd, R, Python or notebook source files are distributed in this revision.
 
 | Section | Contents |
 |---|---|
-| [Labelling](labelling/index.html) | Pointers to the supplementary prompts and archived annotations; no labelling notebooks |
-| [Primary analysis: OpenMx](primary_analysis/index.html) | Five reports covering seven outcome sets, model comparisons, variance/covariance estimates, reliability and D-study intervals |
-| [Supportive analysis: lme4 and MoM](supportive_analysis/index.html) | Five completed lme4 point-estimate reports and univariate method-of-moments diagnostics |
-| [Other analysis](other_analysis/index.html) | Saved agreement, entropy and calibration analyses; archived facet-severity intervals and cross-trait diagnostics |
+| [Labelling](https://veronica0206.github.io/gtheory-llm-evaluator-reliability/labelling/index.html) | Pointers to the supplementary prompts and archived annotations; no labelling notebooks |
+| [Primary analysis: OpenMx](https://veronica0206.github.io/gtheory-llm-evaluator-reliability/primary_analysis/index.html) | Five reports covering seven outcome sets, model comparisons, variance/covariance estimates, reliability and D-study intervals |
+| [Supportive analysis: lme4 and MoM](https://veronica0206.github.io/gtheory-llm-evaluator-reliability/supportive_analysis/index.html) | Five completed lme4 point-estimate reports and univariate method-of-moments diagnostics |
+| [Other analysis](https://veronica0206.github.io/gtheory-llm-evaluator-reliability/other_analysis/index.html) | Saved agreement, entropy and calibration analyses; archived facet-severity intervals and cross-trait diagnostics |
 
 ## Paired analysis reports
 
 | Analysis | Primary OpenMx | Supportive lme4 |
 |---|---|---|
-| Hate-Speech, univariate | [HTML](primary_analysis/uni_hate_speech.html) | [HTML](supportive_analysis/lme4/uni_hate_speech.html) |
-| Mental-Health, seven- and three-level univariate | [HTML](primary_analysis/uni_mental_health.html) | [HTML](supportive_analysis/lme4/uni_mental_health.html) |
-| Drug-Review, univariate | [HTML](primary_analysis/uni_drug_review.html) | [HTML](supportive_analysis/lme4/uni_drug_review.html) |
-| Mental-Health, multivariate | [HTML](primary_analysis/mv_mental_health.html) | [HTML](supportive_analysis/lme4/mv_mental_health.html) |
-| Drug-Review, multivariate | [HTML](primary_analysis/mv_drug_review.html) | [HTML](supportive_analysis/lme4/mv_drug_review.html) |
+| Hate-Speech, univariate | [HTML](https://veronica0206.github.io/gtheory-llm-evaluator-reliability/primary_analysis/uni_hate_speech.html) | [HTML](https://veronica0206.github.io/gtheory-llm-evaluator-reliability/supportive_analysis/lme4/uni_hate_speech.html) |
+| Mental-Health, seven- and three-level univariate | [HTML](https://veronica0206.github.io/gtheory-llm-evaluator-reliability/primary_analysis/uni_mental_health.html) | [HTML](https://veronica0206.github.io/gtheory-llm-evaluator-reliability/supportive_analysis/lme4/uni_mental_health.html) |
+| Drug-Review, univariate | [HTML](https://veronica0206.github.io/gtheory-llm-evaluator-reliability/primary_analysis/uni_drug_review.html) | [HTML](https://veronica0206.github.io/gtheory-llm-evaluator-reliability/supportive_analysis/lme4/uni_drug_review.html) |
+| Mental-Health, multivariate | [HTML](https://veronica0206.github.io/gtheory-llm-evaluator-reliability/primary_analysis/mv_mental_health.html) | [HTML](https://veronica0206.github.io/gtheory-llm-evaluator-reliability/supportive_analysis/lme4/mv_mental_health.html) |
+| Drug-Review, multivariate | [HTML](https://veronica0206.github.io/gtheory-llm-evaluator-reliability/primary_analysis/mv_drug_review.html) | [HTML](https://veronica0206.github.io/gtheory-llm-evaluator-reliability/supportive_analysis/lme4/mv_drug_review.html) |
 
 The OpenMx reports are the revised primary results. All seven outcome sets reached **1,000 accepted bootstrap fits and 100 completed jackknife fits**. Attempt counts, unavailable estimates and sparse-tail diagnostics remain visible. The final report refresh reused the completed fits. The two multivariate reports now also provide the trait-specific variance percentages in manuscript Table 5, their calculation, and full-precision CSV downloads.
 
@@ -33,12 +33,12 @@ The supplementary lme4 reports were rerun on 10 September 2026. They compare all
 
 The multivariate reports use one stacked model with trait-specific diagonal source variances and a shared residual variance, following the covariance restrictions of the original submission. They cover Mental-Health’s six binary flags and separate three OR groups, and Drug-Review’s four aspects. The Mental-Health groups are stress; anxiety or depression; and bipolar disorder, personality disorder or suicidal ideation. Groups can overlap. Cross-trait covariances are fixed at zero, so comparison with the primary full-covariance OpenMx analysis is a covariance-restriction sensitivity.
 
-The manuscript’s retained facet-severity intervals and cross-trait diagnostics are published separately in [Other analysis](other_analysis/index.html). These focused historical reports preserve their original code and saved outputs; they are distinct from the new point-only lme4 fits.
+The manuscript’s retained facet-severity intervals and cross-trait diagnostics are published separately in [Other analysis](https://veronica0206.github.io/gtheory-llm-evaluator-reliability/other_analysis/index.html). These focused historical reports preserve their original code and saved outputs; they are distinct from the new point-only lme4 fits.
 
 ## Data and reproduction
 
 - [OSF data deposit](https://doi.org/10.17605/OSF.IO/K9CAJ).
-- [Data checksums, source extraction, environments and rerun instructions](reproducing.html).
+- [Data checksums, source extraction, environments and rerun instructions](https://veronica0206.github.io/gtheory-llm-evaluator-reliability/reproducing.html).
 - Each OpenMx or lme4 G-theory HTML includes its complete authoring source through **Code → Download Rmd**, as well as code, numerical outputs and session information. The source can be recovered locally from the HTML; no separate Rmd upload is needed.
 - The five lme4 HTMLs additionally contain **106 downloadable output files**, with exact saved CSV and RDS bytes. Use each report’s “Download the complete point-estimate outputs” section.
 - The agreement reports preserve the saved notebook outputs and identify historical wording/provenance limitations. Labelling notebooks are omitted; the Supplementary Materials contain the prompts.
