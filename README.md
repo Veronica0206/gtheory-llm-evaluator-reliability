@@ -1,6 +1,6 @@
 # Generalizability Theory for LLM-as-Evaluator Reliability
 
-Code and results accompanying the revised manuscript by **Jin Liu and Robert A. Perera**:
+Code and results accompanying the manuscript:
 
 > *Generalizability Theory for LLM-as-Evaluator Reliability: Univariate and Multivariate Variance Decomposition Across Models, Prompts, and Temperatures in Text Classification.*
 
