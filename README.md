@@ -16,7 +16,7 @@ The study examines annotation reliability across evaluators, prompts, temperatur
 | [Primary analysis: OpenMx](https://veronica0206.github.io/gtheory-llm-evaluator-reliability/primary_analysis/index.html) | Five reports covering seven outcome sets, model comparisons, variance/covariance estimates, reliability and D-study intervals |
 | [Supportive analysis: lme4 and MoM](https://veronica0206.github.io/gtheory-llm-evaluator-reliability/supportive_analysis/index.html) | Five completed lme4 point-estimate reports and univariate method-of-moments diagnostics |
 | [Other analysis](https://veronica0206.github.io/gtheory-llm-evaluator-reliability/other_analysis/index.html) | Saved agreement, entropy and calibration analyses; archived facet-severity intervals and cross-trait diagnostics |
-| [Supplementary calculations](https://veronica0206.github.io/gtheory-llm-evaluator-reliability/supplementary_calculations/index.html) | Scripts and saved outputs for Supplementary Tables S26–S38, embedded as downloads |
+| [Supplementary calculations](https://veronica0206.github.io/gtheory-llm-evaluator-reliability/supplementary_calculations/index.html) | Scripts and saved outputs for Supplementary Tables S26–S37, embedded as downloads |
 
 ## Paired analysis reports
 
